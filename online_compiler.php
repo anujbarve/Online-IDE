@@ -78,6 +78,7 @@ Input: <input type="text" name="stdin"><br>
                 <textarea style="background-color: #2E2E2E;border:none;" name="scode" id="scode" placeholder="Program Code"></textarea>
             </div>
             <div class="flex flex-col-reverse md:flex-row place-content-end">
+            <input style="background-color: #193E46;border:none;" type="number" name="lang"><br>
                 <button name="submit" type="submit"class="m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Run</button>
                 <button class="m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Save</button>
                 <button class="m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Share</button>
@@ -101,7 +102,7 @@ Input: <input type="text" name="stdin"><br>
     </div>
 
 </div>
-<input style="background-color: #193E46;border:none;" type="number" name="lang"><br>
+
 
 </form>
 
