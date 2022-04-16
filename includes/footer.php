@@ -24,17 +24,17 @@
                 </div>
                 <div class="lg:mb-0 mb-6">
                     <div>
-                        <a href="#">Compiler</a>
+                        <a href="../online_compiler.php">Compiler</a>
                     </div>
                 </div>
                 <div class="lg:mb-0 mb-6">
                     <div>
-                        <a href="term.html">Terms</a>
+                        <a href="../../../cpp/Online-IDE/Pages/term.html">Terms</a>
                     </div>
                 </div>
                 <div class="lg:mb-0 mb-6">
                     <div>
-                        <a href="term.html">Policies</a>
+                        <a href="../../../cpp/Online-IDE/Pages/term.html">Policies</a>
                     </div>
                 </div>
             </div>

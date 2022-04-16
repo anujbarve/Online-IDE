@@ -29,26 +29,38 @@
 
     @media only screen and (max-width: 768px) {
         .program {
-        border-radius: 15px 15px 0px 0px;
-    }
+            border-radius: 15px 15px 0px 0px;
+        }
 
-    .input {
-        border-radius: 0px 0px 0px 0px;
-    }
+        .input {
+            border-radius: 0px 0px 0px 0px;
+        }
 
-    .output {
-        border-radius: 0px 0px 15px 15px;
+        .output {
+            border-radius: 0px 0px 15px 15px;
+        }
     }
-}
 </style>
 
 <div class="container place-content-center h-screen w-full">
 
     <div class="mt-6 md:ml-6 mb-6 grid grid-rows-2 grid-col-1 md:grid-col-3 grid-flow-row md:grid-flow-col h-full w-full">
-        <div class="program md:col-span-2 md:row-span-2 content-end">Program Code       
+        <div class="grid grid-rows-2 grid-col-1 grid-flow-row program md:col-span-2 md:row-span-2 " style="overflow: auto;">
+            <div class="row-span-3">
+                Program Code
+            </div>
+            <div class="flex flex-col-reverse md:flex-row place-content-end">
+                <button class="m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Run</button>
+                <button class="m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Save</button>
+                <button class="m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Share</button>
+            
+
+
+            </div>
+
         </div>
         <div class="input">Input</div>
-        <div class="output">Output
+        <div class="output" style="overflow: auto;">
 
         </div>
     </div>
