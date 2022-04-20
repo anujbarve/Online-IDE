@@ -68,7 +68,6 @@ if ($err) {
 } else {
 	$decoded = json_decode($response);
     $output = $decoded->stdout;
-	$scode = $decoded->
     $final_output = base64_decode($output);
     header("location: ../online_compiler.php?output=$final_output");
 }
