@@ -21,4 +21,7 @@ session_start();
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+
 </head>

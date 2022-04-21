@@ -18,7 +18,7 @@ Input: <input type="text" name="stdin"><br>
 </html> -->
 
 <?php include './includes/header.php'; ?>
-<?php include './includes/navbar.php'; ?>
+<?php include './includes/navbar-new.php'; ?>
 
 <style>
 
@@ -69,7 +69,7 @@ Input: <input type="text" name="stdin"><br>
 
 <form action="./includes/compiler.php" method="post">
 <div class="container place-content-center h-screen w-full">
-    <div class="mt-6 md:ml-6 mb-6 grid grid-rows-2 grid-col-1 md:grid-col-3 grid-flow-row md:grid-flow-col h-full w-full">
+    <div class="mt-6 ml-1 mb-6 grid grid-rows-2 grid-col-1 md:grid-col-3 grid-flow-row md:grid-flow-col h-full w-full">
     
 
 
@@ -79,9 +79,9 @@ Input: <input type="text" name="stdin"><br>
             </div>
             <div class="flex flex-col-reverse md:flex-row place-content-end">
             <input style="background-color: #193E46;border:none;" type="number" <?php echo isset($_POST['lang']) ? $_POST['lang'] : '' ?> name="lang"><br>
-                <button name="submit" type="submit"class="m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Run</button>
-                <button class="m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Save</button>
-                <button class="m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Share</button>
+                <button name="submit" type="submit"class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Run</button>
+                <button class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Save</button>
+                <button class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Share</button>
             </div>
 
         </div>

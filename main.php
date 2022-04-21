@@ -1,88 +1,65 @@
 <?php
 
 include_once './includes/header.php';
+include_once './includes/navbar-new.php';
+
 
 ?>
 
 
 <!-- Simple Responsive Hero -->
-
-
-<head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  
-</head>
 <?php
 
 if (isset($_SESSION["userUid"])) {
 ?>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <?php if (isset($_SESSION["userUid"])) { ?>
-            <li class="nav-item">
-              <a href="#" class="nav-link"><?php echo $_SESSION["userUid"] ?></a>
-            </li>
-          <?php } else { ?>
-            <li class="nav-item">
-              <a class="nav-link" href="register.php">Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.php">Log In</a>
-            </li>
-          <?php } ?>
-        </ul>
-      </div>
+<header class="-mb-6">
+  <div class="relative overflow-hidden bg-no-repeat bg-cover h-full " style="
+    background-position: 50%;
+    background-image: url('https://images.pexels.com/photos/3780104/pexels-photo-3780104.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
 
-    </div>
-  </nav>
-<div class="container col-xxl-8 px-4 py-5">
-    
-  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-    <div class="col-10 col-sm-8 col-lg-6">
-      <img src="./images/cpplogo.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
-    </div>
-    <div class="col-lg-6">
-      <h1 class="display-5 fw-bold lh-1 mb-3">Hello There<?php echo " ".$_SESSION["userUid"]." ";?></h1>
-      <p class="lead">You are logged in.</p>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <a href="includes/logout.inc.php">
-        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Log Out</button>
+  ">
+    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
+      style="background-color: rgba(0, 0, 0, 0.75)">
+      <div class="flex justify-center items-center h-full">
+        <div class="text-center text-white px-6 md:px-12">
+          <h1 class="text-5xl font-bold mt-0 mb-6">Hello <?php echo $_SESSION["userUid"] ?></h1>
+          <h3 class="text-3xl font-bold mb-8">Go to Dashboard</h3>
+        <a href="./online_compiler.php">
+
+        <button type="button"
+            class="inline-block px-6 py-2.5 border-2 border-white text-white font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+            data-mdb-ripple="true" data-mdb-ripple-color="light">
+            Dashboard
+          </button>
+
         </a>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  <!-- Background image -->
+</header>
 
 <?php
 }else {
 ?>
 
-<div class="container col-xxl-8 px-4 py-5">
-  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-    <div class="col-10 col-sm-8 col-lg-6">
-      <img src="./images/cpplogo.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
-    </div>
-    <div class="col-lg-6">
-      <h1 class="display-5 fw-bold lh-1 mb-3">Welcome to the Index Page</h1>
-      <p class="lead">This is a simple Login / Register user script made in PHP, and the frontend using Bootstrap</p>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-start"></div>
-    </div>
+<header>
+   <!-- Jumbotron -->
+  <div class="text-center bg-gray-50 text-gray-800 py-20 px-6">
+    <h1 class="text-5xl font-bold mt-0 mb-6">Login To take</h1>
+    <h3 class="text-3xl font-bold mb-8">Subeading</h3>
+    <a class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="#!" role="button">Get started</a>
   </div>
-</div>
+  <!-- Jumbotron -->
+</header>
 
 <?php
 }
 ?>
+
+
+
 
 <!-- / Simple Responsive Hero -->
 

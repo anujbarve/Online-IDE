@@ -31,7 +31,7 @@
     <div
     class=" text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF]">
                     <div>
-                        <a href="home.html">Scryptn</a>
+                        <a href="./index.php">Scryptn</a>
                     </div>
                 </div>
       <!-- Left links -->
@@ -172,8 +172,8 @@
           <li>
             <a
               class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-              href="#"
-              >Something else here</a
+              href="./includes/logout.inc.php"
+              >Log Out</a
             >
           </li>
         </ul>
