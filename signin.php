@@ -30,9 +30,9 @@
     <div class="grid grid-cols-1 md:grid-cols-2 h-screen w-full">
         <div class="grid bg-white px-5 content-start py-8 ">
             <div class="grid  ">
-                <span class="py-8 text-2xl font-extrabold">
+                <!-- <span class="py-8 text-2xl font-extrabold">
                     X
-                </span>
+                </span> -->
             </div>
             <div class="grid md:px-16 ">
                 <div class="py-10">

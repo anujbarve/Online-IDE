@@ -3,38 +3,59 @@
 
 <body>
 
+<style>
+
+*{
+  box-sizing: border-box;
+}
+
+/* .main{
+  background-color: red;
+}
+
+.profile{
+  background-color: yellow;
+}
+
+.files{
+  background-color: blue;
+} */
+</style>
 
 
-<div class="container w-full">
+<div class="container h-full w-full">
 
-<div class="grid grid-rows-0 grid-col-1 md:grid-col-3 md:grid-flow-col m-5">
-<div>
+<div class="m-5 main flex md:flex-row flex-col">
+<div class="profile w-full md:w-1/3">
 
-<div class="">
-  <div class="rounded-lg shadow-lg bg-white max-w-sm">
-    <a href="#!">
-      <img class="rounded-t-lg" src="https://angularjs-template.herokuapp.com/sing-app/dist/demo/img/people/a5.jpg" alt=""/>
-    </a>
-    <div class="p-6">
-      <h5 class="text-gray-900 text-xl font-medium mb-2">Card title</h5>
-      <p class="text-gray-700 text-base mb-4">
-        Some quick example text to build on the card title and make up the bulk of the card's
-        content.
-      </p>
-      <button type="button" class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Button</button>
-    </div>
+01
+
+<!-- Profile -->
+
+<div class="flex justify-center">
+  <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+    <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Card title</h5>
+    <p class="text-gray-700 text-base mb-4">
+      Some quick example text to build on the card title and make up the bulk of the card's
+      content.
+    </p>
+    <button type="button" class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Button</button>
   </div>
 </div>
 
+<!-- /Profile -->
+
 
 </div>
 
 
+<div class="files w-full md:w-2/3" >
 
+02
 
-<div class="col-span-2">
+<!-- Files -->
 
-<div class="">
+<div class="flex flex-col">
   <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
     <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
       <div class="overflow-hidden">
@@ -99,10 +120,11 @@
   </div>
 </div>
 
+<!-- /Files -->
+</div>
 </div>
 
 </div>
-  </div>
 
 </body>
 
