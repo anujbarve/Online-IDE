@@ -1,5 +1,5 @@
 <nav
-  class="relative w-full flex flex-wrap items-center justify-between py-3 bg-gray-900 text-gray-200 shadow-lg navbar navbar-expand-lg navbar-light"
+  class="relative w-full flex flex-wrap items-center justify-between py-3 bg-black text-gray-200 shadow-lg navbar navbar-expand-lg navbar-light"
 >
   <div class="container-fluid w-full flex flex-wrap items-center justify-between px-6">
     <button
@@ -28,12 +28,9 @@
       </svg>
     </button>
     <div class="collapse navbar-collapse flex-grow items-center" id="navbarSupportedContent1">
-    <div
-    class=" text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF]">
-                    <div>
+    <div class="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF]">
                         <a href="./index.php">Scryptn</a>
-                    </div>
-                </div>
+    </div>
       <!-- Left links -->
       <ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
         <li class="nav-item p-2">
@@ -88,8 +85,8 @@
           <li>
             <a
               class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-              href="#"
-              >Action</a
+              href="./user_dash.php"
+              >Dashboard</a
             >
           </li>
           <li>

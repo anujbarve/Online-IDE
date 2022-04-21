@@ -74,11 +74,11 @@ Input: <input type="text" name="stdin"><br>
 
 
     <div class="grid grid-rows-2 grid-col-1 grid-flow-row program md:col-span-2 md:row-span-2 " style="overflow: auto;">
-            <div class="row-span-3">
-                <textarea style="background-color: #2E2E2E;border:none;" value="<?php echo isset($_POST['scode']) ? $_POST['scode'] : '' ?>" name="scode" id="scode" placeholder="Program Code"></textarea>
+            <div id="editor" class="row-span-3">
+                <textarea class="w-full h-full"type="text" style="background-color: #2E2E2E;border:none;" name="scode" id="scode" placeholder="Program Code"></textarea>
             </div>
-            <div class="flex flex-col-reverse md:flex-row place-content-end">
-            <input style="background-color: #193E46;border:none;" type="number" <?php echo isset($_POST['lang']) ? $_POST['lang'] : '' ?> name="lang"><br>
+            <div class="flex flex-col md:flex-row place-content-end">
+            <input style="background-color: #193E46;border:none;" type="number" name="lang"><br>
                 <button name="submit" type="submit"class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Run</button>
                 <button class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Save</button>
                 <button class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Share</button>
@@ -86,9 +86,9 @@ Input: <input type="text" name="stdin"><br>
 
         </div>
         <div class="input">
-        <textarea style="background-color: #193E46;border:none;" value="<?php echo isset($_POST['stdin']) ? $_POST['stdin'] : '' ?>" name="stdin" id="stdin" placeholder="Input"></textarea>
+        <textarea style="background-color: #193E46;border:none;" name="stdin" id="stdin" placeholder="Input"></textarea>
         </div>
-        <div class="output" style="overflow: auto;">
+        <div class="output h-128" style="overflow: auto;">
             <?php
             
             if(isset($_GET["output"])){
@@ -105,5 +105,11 @@ Input: <input type="text" name="stdin"><br>
 
 
 </form>
+<script src="./packages/src-min/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/one_dark");
+    editor.session.setMode("ace/mode/python");
+</script>
 
 <?php include './includes/footer.php'; ?>

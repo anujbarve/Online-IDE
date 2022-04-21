@@ -4,7 +4,7 @@
 <?php include './includes/header.php'?>
 
 <body class="bg-black lg:bg-white">
-    <!--               *****************   HERO SECTON  **************************  -->
+    <!--               *****************   HERO SECTION  **************************  -->
     <section class="hero border-b-2 ">
         <div class="px-4 py-2 grid grid-cols-2">
             <div class="flex flex-row justify-items-start font-extrabold text-[#888888] hover:text-[#000000]">
