@@ -27,21 +27,40 @@
 </style>
 
 
+<?php 
+      
+      include './includes/dbh.inc.php';
+      $id = $_SESSION["userID"];
+      $result = mysqli_query($conn, "SELECT * FROM `users` WHERE `userID` = $id;");
+      $row = mysqli_fetch_array($result);
+      
+?>
+
 <div class="p-5 container w-full main flex md:flex-row flex-col">
 <div class="profile w-full md:w-1/3 flex justify-center">
 <!-- Profile -->
   <div class="rounded-lg bg-gray-200 max-w-sm">
     <a class="m-8 flex justify-center" data-mdb-ripple="true" data-mdb-ripple-color="light">
-      <img class="profile-photo" width="200px" src="https://angularjs-template.herokuapp.com/sing-app/dist/demo/img/people/a5.jpg" alt=""/>
+      <img class="profile-photo" width="200px" src="<?php  if(isset($row["user_photo"])){ echo "./user-data/profile-photos/".$row["user_photo"];}else{echo "https://angularjs-template.herokuapp.com/sing-app/dist/demo/img/people/a5.jpg";}?>" alt=""/>
     </a>
     <div class="p-6">
-      <h5 class="text-gray-900 text-xl font-medium mb-2"><?php if (isset($_SESSION["userUid"])) { echo $_SESSION["userUid"]; }?></h5>
+      <h5 class="text-gray-900 text-xl font-medium mb-2"><?php echo $row["userName"]?></h5>
       <p class="text-gray-700 text-base mb-4">
-      <?php ?>
+      <?php
+      if(isset($row["user_desc"])){ echo $row["user_desc"];}else{echo "Profile Incomplete, Complete Your Registration";}
+      
+      ?>
+      
       </p>
+      
+      <a href='<?php  if(isset($row["user_gh"])){ echo $row["user_gh"];}else{echo "#";}?>'>
       <button type="button" class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Github Profile</button>
-      <button type="button" class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">LinkedIn Profile</button>
-    </div>
+    </a>
+    <a href="<?php  if(isset($row["user_ln"])){ echo $row["user_ln"];}else{echo "#";}?>">
+    <button type="button" class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">LinkedIn Profile</button>
+
+  </a>
+          </div>
   </div>
 <!-- /Profile -->
 
