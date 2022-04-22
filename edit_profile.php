@@ -39,7 +39,7 @@
                         <div class="mb-6">
                             <input type="text" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name="description"placeholder="Description" />
                         </div>
-
+<!-- 
                         <div class="mb-6">
                             <label for="formFile" class="form-label inline-block mb-2 text-gray-700">Profile Photo</label>
                             <input class="form-control
@@ -57,10 +57,10 @@
     ease-in-out
     m-0
     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file" name="image" id="formFile">
-                        </div>
+                        </div> -->
 
                         <div class="text-center">
-                            <button type="button" type="submit" class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                            <button name="button" type="submit" class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                                 Edit Profile
                             </button>
                         </div>
@@ -79,5 +79,7 @@
 
 
 </div>
+
+
 
 <?php include './includes/footer.php'; ?>
