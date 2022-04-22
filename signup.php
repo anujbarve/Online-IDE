@@ -30,9 +30,11 @@
     <div class="grid grid-cols-1 md:grid-cols-2 h-screen w-full">
         <div class="grid bg-white px-5 content-start py-8 ">
             <div class="grid  ">
-                <span class="py-8 text-2xl font-extrabold">
+            <a href="./index.php">
+            <span class="py-8 text-2xl font-extrabold">
                     X
                 </span>
+            </a>
             </div>
             <div class="grid md:px-16 ">
                 <div class="py-10">
@@ -74,7 +76,7 @@
                         </div>
                         <div class="form-group justify-content-center">
                             <div class="grid content-center justify-items-center">
-                            <button class="w-52 md:w-72 border-2 my-2 px-3 py-2 shadow hover:shadow-lg hover:text-white rounded bg-[#fff] hover:bg-[#000000]" name="submit" type="submit">Sign In</button><br />
+                            <button class="w-52 md:w-72 border-2 my-2 px-3 py-2 shadow hover:shadow-lg hover:text-white rounded bg-[#fff] hover:bg-[#000000]" name="submit" type="submit">Sign Up</button><br />
                         </div>
                         </div>
                     </form>
