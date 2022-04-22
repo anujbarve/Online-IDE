@@ -13,15 +13,20 @@
                     <img src="https://angularjs-template.herokuapp.com/sing-app/dist/demo/img/people/a5.jpg" class="w-96 rounded-full w-full" alt="Sample image" />
                 </div>
                 <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-                    <form action="./includes/edit_profile.php" method="POST" enctype="multipart/form-data">
+                    <form action="./includes/edit_profile.php" method="post" enctype="multipart/form-data">
                         <div class="flex flex-row items-center justify-center lg:justify-start">
                         </div>
 
                         <div class="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
-                            <p class="text-center font-semibold mx-4 mb-0">Edit Profile</p>
+                            <p class="text-center font-semibold mx-4 mb-0">Edit Profile <?php echo $_SESSION['userID']?></p>
                         </div>
 
                         <!-- Email input -->
+
+                        <div class="mb-6">
+                            <input type="text" class="hidden form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name="userID" value="<?php if (isset($_SESSION["userID"])) { echo $_SESSION["userID"]; }?>" placeholder="Username"/>
+                        </div>
+
 
                         <div class="mb-6">
                             <input type="text" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name="fname" placeholder="Full Name" />
@@ -60,7 +65,7 @@
                         </div> -->
 
                         <div class="text-center">
-                            <button name="button" type="submit" class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                            <button name="submit" type="submit" class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                                 Edit Profile
                             </button>
                         </div>

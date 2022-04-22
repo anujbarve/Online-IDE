@@ -5,13 +5,13 @@ require_once 'functions.inc.php';
 
 if (isset($_POST["submit"])) {
   
-    $name = $_SESSION["userID"];
+    $id = $_POST["userID"];
     $fname = $_POST["fname"];
     $gitlink = $_POST["gitlink"];
     $lnlink = $_POST["lnlink"];
     $description = $_POST["description"];
 
-    $sql = "UPDATE users SET `linkedlink`='$lnlink',`githublink`='$gitlink',`fullname`='$fname',`description`='$description' WHERE `users`.`userID` = 11";
+    $sql = "UPDATE users SET `user_ln`='$lnlink',`user_gh`='$gitlink',`userName`='$fname',`user_desc`='$description' WHERE `users`.`userID` = $id";
 
     mysqli_query($conn,$sql);
 
