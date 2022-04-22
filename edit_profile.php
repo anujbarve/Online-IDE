@@ -13,7 +13,7 @@
                     <img src="https://angularjs-template.herokuapp.com/sing-app/dist/demo/img/people/a5.jpg" class="w-96 rounded-full w-full" alt="Sample image" />
                 </div>
                 <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-                    <form action="./includes/edit_profile.php" method="post" enctype="multipart/form-data">
+                    <form action="./includes/edit_profile.php" method="POST" enctype="multipart/form-data">
                         <div class="flex flex-row items-center justify-center lg:justify-start">
                         </div>
 

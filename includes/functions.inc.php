@@ -117,7 +117,7 @@ function loginUser($conn,$username,$pwd){
 }
 
 function editUser($name,$conn,$fname,$gitlink,$lnlink,$description,$image){
-    $sql = "UPDATE `users` SET `linkedlink`='$lnlink',`githublink`='$gitlink',`fullname`='$fname',`description`='$description',`profile_photo`='$image' WHERE id = $name";
+    $sql = "UPDATE `users` SET `linkedlink`='$lnlink',`githublink`='$gitlink',`fullname`='$fname',`description`='$description',`profile_photo`='$image' WHERE `users`.`userID` = $name";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
         header("location: ../edit_profile.php?error=stmtfailed");

@@ -2,11 +2,11 @@
 
 if (isset($_POST["submit"])) {
   
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $username = $_POST["uid"];
-    $pwd = $_POST["pwd"];
-    $pwdrepeat = $_POST["pwdrepeat"];
+    $fname = $_POST["fname"];
+    $gitlink = $_POST["gitlink"];
+    $lnlink = $_POST["lnlink"];
+    $description = $_POST["description"];
+    $image = $_FILES["image"]["name"];
   
   
     require_once 'dbh.inc.php';
@@ -14,7 +14,7 @@ if (isset($_POST["submit"])) {
 
 
     $image = $_FILES['image']['name'];
-    $image_text = mysqli_real_escape_string($db, $_POST['image_text']);
+    $image_text = mysqli_real_escape_string($conn, $_POST['image_text']);
     $target = "images/".basename($image);
     
     editUser($name,$conn,$fname,$gitlink,$lnlink,$description,$image);
@@ -26,7 +26,7 @@ if (isset($_POST["submit"])) {
     }
   
   }else{
-    header("location: ../signup.php");
+    header("location: ../user_dash.php");
   }
 
 
