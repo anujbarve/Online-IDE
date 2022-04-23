@@ -25,7 +25,7 @@ if (isset($_POST["submit"])) {
     $msg = "Failed to upload image";
   }
 
-  // header("location: ../user_dash.php?error=none");
+  header("location: ../user_dash.php?error=none");
   exit();
 } else {
   header("location: ../user_dash.php?error");
