@@ -58,7 +58,7 @@
       <a class="text-white opacity-60 hover:opacity-80 focus:opacity-80 mr-4" href="#">
       <?php if (isset($_SESSION["userUid"])) { echo $_SESSION["userUid"]; }?>
       </a>
-      <div class="dropdown relative">
+      <div class="dropdown relative bg-white text-black rounded-full w-8 h-8 flex justify-center">
         <a
           class="dropdown-toggle flex items-center hidden-arrow"
           href="#"
@@ -67,16 +67,14 @@
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <img
-            src="https://mdbootstrap.com/img/new/avatars/2.jpg"
-            class="rounded-full"
-            style="height: 25px; width: 25px"
-            alt=""
-            loading="lazy"
-          />
+      <?php 
+      
+      if (isset($_SESSION["userUid"])) { echo strtoupper($_SESSION["userUid"][0]); }
+      
+      ?>
         </a>
         <ul
-          class="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0"
+          class="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 md:float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0"
           aria-labelledby="dropdownMenuButton2"
         >
           <li>
@@ -167,9 +165,6 @@
       <!-- Left links -->
     </div>
     <!-- Collapsible wrapper -->
-
-    <!-- Right elements -->
-    <!-- Right elements -->
   </div>
 </nav>
 

@@ -25,13 +25,13 @@
                         </div>
 
                         <div class="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
-                            <p class="text-center font-semibold mx-4 mb-0">Edit Profile <?php echo $_SESSION['userID']?></p>
+                            <p class="text-center font-semibold mx-4 mb-0">Edit Profile</p>
                         </div>
 
                         <!-- Email input -->
 
                         <div class="mb-6">
-                            <input type="text" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name="userID" value="<?php if (isset($_SESSION["userID"])) { echo $_SESSION["userID"]; }?>" placeholder="Username"/>
+                            <input type="text" class="hidden form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name="userID" value="<?php if (isset($_SESSION["userID"])) { echo $_SESSION["userID"]; }?>" placeholder="Username"/>
                         </div>
 
 
