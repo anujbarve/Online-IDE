@@ -68,22 +68,24 @@ Input: <input type="text" name="stdin"><br>
 </style>
 <div class="container place-content-center h-screen w-full p-1">
 <form action="./includes/compiler.php" method="post">
-    <div class="hidden md:grid mt-6 ml-1 mb-6 grid grid-rows-2 grid-col-1 md:grid-col-3 grid-flow-row md:grid-flow-col h-full w-full">
+    <div class="hidden md:grid md:ml-6 mt-6 ml-1 mb-6 grid grid-rows-2 grid-col-1 md:grid-col-3 grid-flow-row md:grid-flow-col h-full w-full">
 
     <div class="grid grid-rows-2 grid-col-1 grid-flow-row program md:col-span-2 md:row-span-2 " style="overflow: auto;">
             <div  class="row-span-3">
-                <textarea class="w-full h-full"type="text" style="background-color: #2E2E2E;border:none;" name="scode" id="scode" placeholder="Program Code"></textarea>
+                <textarea class="w-full h-full"type="text" style="background-color: #2E2E2E;border:none;" name="scode" id="scode" placeholder="Program Code"><?php if(isset($_SESSION['scode'])){echo $_SESSION['scode'];};?></textarea>
             </div>
             <div class="flex flex-col md:flex-row place-content-end">
-            <input style="background-color: #193E46;border:none;" type="number" name="lang"><br>
+            <input style="background-color: #193E46;border:none;" type="number" value="<?php if(isset($_SESSION['lang'])){echo $_SESSION['lang'];};?>" name="lang"><br>
                 <button name="submit" type="submit"class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Run</button>
+                <?php if (isset($_SESSION["userUid"])) { ?>
                 <button class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Save</button>
                 <button class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Share</button>
+                <?php } ?>
             </div>
 
         </div>
         <div class="input">
-        <textarea style="background-color: #193E46;border:none;" name="stdin" id="stdin" placeholder="Input"></textarea>
+        <textarea style="background-color: #193E46;border:none;" name="stdin" id="stdin" placeholder="Input"><?php if(isset($_SESSION['input'])){echo $_SESSION['input'];};?></textarea>
         </div>
         <div class="output h-128" style="overflow: auto;">
             <?php
@@ -108,8 +110,10 @@ Input: <input type="text" name="stdin"><br>
        <div style=" background-color: #2E2E2E;" class="row-span-1 flex flex-row place-content-end p-2">
        <input class="m-1 rounded-lg" style="background-color: #193E46;border:none;" type="number" name="lang"><br>
            <button class="text-black m-1 px-2 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg" type="submit">Run</button>
+           <?php if (isset($_SESSION["userUid"])) { ?>
            <button class="text-black m-1 px-2 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg" >Share</button>
            <button class="text-black m-1 px-2 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg" >Save</button>
+           <?php } ?>
        </div>
        <div class="input row-span-2">
        <textarea style="background-color: #193E46;border:none;" name="stdin" id="stdin" placeholder="Input"></textarea>

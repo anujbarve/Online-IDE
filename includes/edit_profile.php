@@ -15,18 +15,30 @@ if (isset($_POST["submit"])) {
   $folder = "../user-data/profile-photos/" . $image;
 
 
-  $sql = "UPDATE users SET `user_ln`='$lnlink',`user_gh`='$gitlink',`userName`='$fname',`user_desc`='$description',`user_photo` = '$image' WHERE `users`.`userID` = $id";
+  if($image != null){
+    $sql = "UPDATE users SET `user_ln`='$lnlink',`user_gh`='$gitlink',`userName`='$fname',`user_desc`='$description',`user_photo` = '$image' WHERE `users`.`userID` = $id";
 
-  mysqli_query($conn, $sql);
+    mysqli_query($conn, $sql);
+  
+    if (move_uploaded_file($tempname, $folder)) {
+      $msg = "Image uploaded successfully";
+    } else {
+      $msg = "Failed to upload image";
+    }
+  
+    header("location: ../user_dash.php?error=none");
+    exit();
+  }else{
+    $sql = "UPDATE users SET `user_ln`='$lnlink',`user_gh`='$gitlink',`userName`='$fname',`user_desc`='$description' WHERE `users`.`userID` = $id";
 
-  if (move_uploaded_file($tempname, $folder)) {
-    $msg = "Image uploaded successfully";
-  } else {
-    $msg = "Failed to upload image";
+    mysqli_query($conn, $sql);
+  
+    header("location: ../user_dash.php?error=none");
+    exit();
   }
 
-  header("location: ../user_dash.php?error=none");
-  exit();
+
+
 } else {
   header("location: ../user_dash.php?error");
 }

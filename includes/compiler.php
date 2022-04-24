@@ -1,7 +1,14 @@
 <?php
+
+session_start();
+
 $lang = $_POST["lang"];
 $scode = $_POST["scode"];
 $stdin = $_POST["stdin"];
+
+$_SESSION['input'] = $stdin;
+$_SESSION['lang'] = $lang;
+$_SESSION['scode'] = $scode;
 
 $scode_enc = base64_encode($scode);
 $stdin_enc = base64_encode($stdin);
@@ -69,6 +76,7 @@ if ($err) {
 	$decoded = json_decode($response);
     $output = $decoded->stdout;
     $final_output = base64_decode($output);
+
     header("location: ../online_compiler.php?output=$final_output");
 }
 }
