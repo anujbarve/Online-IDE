@@ -66,15 +66,12 @@ Input: <input type="text" name="stdin"><br>
         }
     }
 </style>
-
+<div class="container place-content-center h-screen w-full p-1">
 <form action="./includes/compiler.php" method="post">
-<div class="container place-content-center h-screen w-full">
-    <div class="mt-6 ml-1 mb-6 grid grid-rows-2 grid-col-1 md:grid-col-3 grid-flow-row md:grid-flow-col h-full w-full">
-    
-
+    <div class="hidden md:grid mt-6 ml-1 mb-6 grid grid-rows-2 grid-col-1 md:grid-col-3 grid-flow-row md:grid-flow-col h-full w-full">
 
     <div class="grid grid-rows-2 grid-col-1 grid-flow-row program md:col-span-2 md:row-span-2 " style="overflow: auto;">
-            <div id="editor" class="row-span-3">
+            <div  class="row-span-3">
                 <textarea class="w-full h-full"type="text" style="background-color: #2E2E2E;border:none;" name="scode" id="scode" placeholder="Program Code"></textarea>
             </div>
             <div class="flex flex-col md:flex-row place-content-end">
@@ -100,9 +97,36 @@ Input: <input type="text" name="stdin"><br>
        
 
     </div>
+        </form>
+        <form action="./includes/compiler.php" method="post">
+    <div class="hidden mt-6 mb-6 grid grid-col-1 grid-row-6 h-full grid-flow-row" style="overflow: hidden;">
+       <div class="program row-span-4 w-full ">
+
+       <textarea class="w-full h-full" type="text" style="background-color: #2E2E2E;border:none;" name="scode" id="scode" placeholder="Program Code"></textarea>
+
+       </div>
+       <div style=" background-color: #2E2E2E;" class="row-span-1 flex flex-row place-content-end p-2">
+       <input class="m-1 rounded-lg" style="background-color: #193E46;border:none;" type="number" name="lang"><br>
+           <button class="text-black m-1 px-2 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg" type="submit">Run</button>
+           <button class="text-black m-1 px-2 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg" >Share</button>
+           <button class="text-black m-1 px-2 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg" >Save</button>
+       </div>
+       <div class="input row-span-2">
+       <textarea style="background-color: #193E46;border:none;" name="stdin" id="stdin" placeholder="Input"></textarea>
+       </div>
+       <div class="output">
+       <?php
+            
+            if(isset($_GET["output"])){
+                echo $_GET["output"];
+            }
+            ?>
+       </div>
+
+    </div>
+        </form>
 
 </div>
-
 
 </form>
 <script src="./packages/src-min/ace.js" type="text/javascript" charset="utf-8"></script>

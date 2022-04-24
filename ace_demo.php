@@ -1,32 +1,90 @@
-<?php include './includes/header.php'; ?>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<title>ACE in Action</title>
-<style type="text/css" media="screen">
-    #editor { 
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 200;
-        left: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDN Code Editor</title>
+
+<style>
+    /* Variables */
+:root {
+    --editor-bg: #eee;
+    --editor-border: #3f87a6;
+}
+
+/* Reset Styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.editor {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.editor__wrapper {
+    width: 95%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--editor-bg);
+    padding: 2em;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+.editor__body {
+    flex: 1;
+}
+.editor__code {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 1px solid var(--editor-border);
+}
 </style>
 </head>
+
 <body>
+    <div class="editor">
+        <div class="editor__wrapper">
+            <div class="editor__body">
+                <div id="editor" class="editor__code"></div>
+            </div>
+        </div>
+        
+    <button onclick="getValue()">Submit</button>
+    </div>
 
-<div>
-<form action="<?php $_SERVER['PHP_SELF']?>" method="post">
-    <div id="editor"></div>
-
-</form>
-<button type="submit"></button>
-</div>
-
-<script src="./packages/src-min/ace.js" type="text/javascript" charset="utf-8"></script>
-<script src="./packages/src-min/mode-html.js" type="text/javascript" charset="utf-8"></script>
-<script src="./packages/src-min/ext-language_tools.js"></script>
-<script src="./packages/src-min/ext-emmet.js"></script>
+    <script>
+        function getValue(){
+console.log(document.getElementById("editor").innerText)
+}
+    </script>
 
 
-<script src="./editor.js"></script>
+    <!-- Required Ace Libraries -->
+    <script src="./packages/src-min/ace.js"></script>
+    <script src="./packages/src-min/mode-python.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="./editor.js"></script>
 </body>
+
 </html>

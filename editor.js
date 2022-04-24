@@ -6,13 +6,13 @@ let editorLib = {
         codeEditor.session.setMode("ace/mode/python");
 
         codeEditor.setOptions({
-            fontSize:'16pt',
+            fontSize:'12pt',
             enableBasicAutocompletion: true,
             enableLiveAutocompletion:true,
-            enableSnippets: true,
-            enableEmmet: true
+            enableSnippets: true
         })
     }
 }
 
 editorLib.init();
+
