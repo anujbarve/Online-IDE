@@ -99,7 +99,7 @@ Input: <input type="text" name="stdin"><br>
     </div>
         </form>
         <form action="./includes/compiler.php" method="post">
-    <div class="hidden mt-6 mb-6 grid grid-col-1 grid-row-6 h-full grid-flow-row" style="overflow: hidden;">
+    <div class="md:hidden mt-6 mb-6 grid grid-col-1 grid-row-6 h-full grid-flow-row" style="overflow: hidden;">
        <div class="program row-span-4 w-full ">
 
        <textarea class="w-full h-full" type="text" style="background-color: #2E2E2E;border:none;" name="scode" id="scode" placeholder="Program Code"></textarea>
