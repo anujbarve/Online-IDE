@@ -88,7 +88,7 @@ $row = mysqli_fetch_array($result);
 
             <div class="grid grid-rows-2 grid-col-1 grid-flow-row program md:col-span-2 md:row-span-2 " style="overflow: auto;">
                 <div class="row-span-3">
-                    <textarea class="w-full h-8 m-1" type="text" style="background-color: #2E2E2E;border:none;" name="filename" id="filename" placeholder="Filename"><?php if (isset($row["filename"])) {echo $row["filename"];}else{if (isset($_SESSION['filename'])) { echo $_SESSION['filename']; };}?></textarea>
+                    <textarea class="w-full h-8 m-1" type="text" style="background-color: #2E2E2E;border:none;" name="filename" id="filename" placeholder="Filename"><?php if (isset($row["name"])) {echo $row["name"];}else{if (isset($_SESSION['filename'])) { echo $_SESSION['filename']; };}?></textarea>
 
                     <textarea class="w-full h-[33rem] m-1" type="text" style="background-color: #2E2E2E;border:none;" name="scode" id="scode" placeholder="Program Code"><?php if (isset($row["source_code"])) { echo $row["source_code"];}else{if(isset($_SESSION['scode'])) { echo $_SESSION['scode'];}; }?></textarea>
                 </div>
@@ -127,8 +127,9 @@ $row = mysqli_fetch_array($result);
     <form action="./includes/compiler.php" method="post">
         <div class="md:hidden mt-6 mb-6 grid grid-col-1 grid-row-6 h-full grid-flow-row" style="overflow: hidden;">
             <div class="program row-span-4 w-full ">
+            <textarea class="w-full h-8 m-1" type="text" style="background-color: #2E2E2E;border:none;" name="filename" id="filename" placeholder="Filename"><?php if (isset($row["name"])) {echo $row["name"];}else{if (isset($_SESSION['filename'])) { echo $_SESSION['filename']; };}?></textarea>
 
-                <textarea class="w-full h-full" type="text" style="background-color: #2E2E2E;border:none;" name="scode" id="scode" placeholder="Program Code"></textarea>
+                <textarea class="w-full h-full" type="text" style="background-color: #2E2E2E;border:none;" name="scode" id="scode" placeholder="Program Code"><?php if (isset($row["source_code"])) { echo $row["source_code"];}else{if(isset($_SESSION['scode'])) { echo $_SESSION['scode'];}; }?></textarea>
 
             </div>
             <div style=" background-color: #2E2E2E;" class="row-span-1 flex flex-row place-content-end p-2">
@@ -136,7 +137,7 @@ $row = mysqli_fetch_array($result);
                 <button class="text-black m-1 px-2 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg" type="submit" name="submit">Run</button>
                 <?php if (isset($_SESSION["userUid"])) { ?>
                     <button class="text-black m-1 px-2 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Share</button>
-                    <button class="text-black m-1 px-2 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg" type="save" name="save">Save</button>
+                    <button name="save" type="save" class="text-black m-1 px-2 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg" type="save" name="save">Save</button>
                 <?php } ?>
             </div>
             <div class="input row-span-2">
