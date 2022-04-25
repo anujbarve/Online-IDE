@@ -34,6 +34,9 @@
   $row = mysqli_fetch_array($result);
 
   ?>
+  <head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
 
   <div class="p-5 container w-full main flex md:flex-row flex-col">
     <div class="profile w-full md:w-1/3 flex justify-center">
@@ -105,8 +108,11 @@
                     <th scope="col" style="width: 10%;" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                       Icon
                     </th>
-                    <th scope="col" style="width: 90%;" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    <th scope="col" style="width: 80%;" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                       Files
+                    </th>
+                    <th scope="col" style="width: 10%;" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                      Actions
                     </th>
                   </tr>
                 </thead>
@@ -118,14 +124,19 @@
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
                   <tr class="border-b">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><?php echo $row["extension"]; ?></td>
-                  
+                  <td class="flex justify-center px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><?php $i = $row["extension"]; if( $i == "71" ){echo "<i class='fa-brands fa-python'></i>";}; ?></td>
 
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                   <a href="./online_compiler.php?filename=<?php echo $row['name'];?>">
                   <?php echo $row["name"]; ?>
                   </a>
-                    </td>
+                  </td>
+
+                  <td class="flex justify-center p-4">
+                    <a href="./admin/delete.php?id=<?php echo $row["id"]; ?>">
+                    <i class="fa-solid fa-trash"></i>
+                    </a>
+
 
                   </tr>
                 <?php

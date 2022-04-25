@@ -93,11 +93,7 @@ $row = mysqli_fetch_array($result);
                     <textarea class="w-full h-[33rem] m-1" type="text" style="background-color: #2E2E2E;border:none;" name="scode" id="scode" placeholder="Program Code"><?php if (isset($row["source_code"])) { echo $row["source_code"];}else{if(isset($_SESSION['scode'])) { echo $_SESSION['scode'];}; }?></textarea>
                 </div>
                 <div class="flex flex-col md:flex-row place-content-end">
-                    <input style="background-color: #193E46;border:none;" type="number" value="            <?php if (isset($row["extension"])) {
-                echo $row["extension"];
-            }  ?><?php if (isset($_SESSION['lang'])) {
-                                                                                                    echo $_SESSION['lang'];
-                                                                                                }; ?>" name="lang"><br>
+                    <input style="background-color: #193E46;border:none;" type="number" value="<?php if (isset($row["extension"])) {echo $row["extension"];}else{if (isset($_SESSION['lang'])) {echo $_SESSION['lang'];};}  ?>" name="lang"><br>
                     <button name="submit" type="submit" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Run</button>
                     <?php if (isset($_SESSION["userUid"])) { ?>
                         <button name="save" type="save" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Save</button>
