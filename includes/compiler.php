@@ -5,11 +5,16 @@ session_start();
 $lang = $_POST["lang"];
 $scode = $_POST["scode"];
 $stdin = $_POST["stdin"];
+$filename = $_POST["filename"];
 
+$_SESSION['filename'] = $filename;
 $_SESSION['input'] = $stdin;
 $_SESSION['lang'] = $lang;
 $_SESSION['scode'] = $scode;
 
+if (isset($_POST['submit'])) {
+
+	
 $scode_enc = base64_encode($scode);
 $stdin_enc = base64_encode($stdin);
 
@@ -76,9 +81,30 @@ if ($err) {
 	$decoded = json_decode($response);
     $output = $decoded->stdout;
     $final_output = base64_decode($output);
-
     header("location: ../online_compiler.php?output=$final_output");
 }
+}
+
+
+}
+elseif (isset($_POST['save'])) {
+
+	require_once "../admin/connection.php";
+	$name = $_POST['filename'];
+	$lang = $_POST["lang"];
+	$scode = mysqli_real_escape_string($conn,$_POST["scode"]);
+	$username = $_SESSION['userUid'];
+	$sql = "INSERT INTO user_files (name,extension,source_code,user_name)
+	VALUES ('$name','$lang','$scode','$username')";
+	if (mysqli_query($conn, $sql)) {
+	   header("location: ../online_compiler.php");
+	   exit();
+	} else {
+	   echo "Error: " . $sql . "
+" . mysqli_error($conn);
+	}
+	mysqli_close($conn);	
+
 }
 
 

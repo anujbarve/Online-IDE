@@ -4,7 +4,6 @@ require_once "connection.php";
 
 if(isset($_POST['save']))
 {    
-
      $name = $_POST['name'];
      $extension = $_POST['extension'];
      $username = $_SESSION['userUid'];
