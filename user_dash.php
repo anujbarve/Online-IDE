@@ -96,7 +96,8 @@
             <div class="overflow-hidden">
             <?php
               include_once './includes/dbh.inc.php';
-              $result = mysqli_query($conn, "SELECT * FROM user_files");
+              $uid = $_SESSION["userUid"];
+              $result = mysqli_query($conn, "SELECT * FROM `user_files` WHERE `user_name` = '$uid';");
               ?>
               <?php
               if (mysqli_num_rows($result) > 0) {
