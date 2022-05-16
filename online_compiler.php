@@ -79,7 +79,7 @@ if (isset($_GET['filename'])) {
 ?>
 
 
-<div class="container place-content-center h-screen w-full p-1">
+<div class="container place-content-center w-full p-1">
 
     <form action="./includes/compiler.php" method="post">
 

@@ -5,7 +5,48 @@
 
 <body class="bg-black lg:bg-white">
     <!--               *****************   HERO SECTION  **************************  -->
-    <section class="hero border-b-2 ">
+
+<?php
+if (isset($_SESSION["userUid"])) {
+?>
+<?php
+include_once './includes/navbar-new.php';
+?>
+<section class="hero border-b-2 ">
+        <div class="px-4 py-2 grid grid-cols-2">
+
+        </div>
+        <div class=" h-screen  grid grid-cols-1 md:grid-cols-3">
+            <div class="grid px-4 py-2 content-start justify-items-right ">
+                <div class="title1 leading-10 text-center md:text-left text-white lg:text-black text-4xl md:text-6xl py-10 font-black tracking-normal ">
+                    Most <br />
+                    Powerful<br />
+                    Online <br />
+                    IDE<br />
+                </div>
+            </div>
+            <div class="grid  sm:bg-black md:bg-transparent  content-center justify-items-center ">
+                <div
+                    class="title2 leading-10 py-2  text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] ">
+                    Scryptn
+                </div>
+                <div class="text-lg leading-10  text-white">
+                    <span>Code with ease</span>
+                </div>
+            </div>
+            <div class="grid px-4 py-2 content-center  md:content-end justify-items-center md:justify-items-end">
+                <div class="title1 text-white lg:text-black text-4xl md:text-5xl py-10 font-black tracking-normal ">
+                    Now, You can <br />
+                    Code without a<br />
+                    PC ;) <br />
+                </div>
+            </div>
+        </div>
+    </section>
+<?php
+}else{
+?>
+<section class="hero border-b-2 ">
         <div class="px-4 py-2 grid grid-cols-2">
             <div class="flex flex-row justify-items-start font-extrabold text-[#888888] hover:text-[#000000]">
                 <div class="flex ">
@@ -48,6 +89,10 @@
             </div>
         </div>
     </section>
+<?php
+}
+?>
+    
     <!--               *****************   FEATURES SECTON  **************************  -->
     <section>
         <div class="grid bg-black content-center justify-items-center py-10 ">
@@ -112,8 +157,16 @@
                             d="M352 359.8c22.46 0 31.1 19.53 31.1 31.99c0 23.14-66.96 88.23-164.5 88.23c-137.1 0-219.4-117.8-219.4-224c0-103.8 79.87-223.1 219.4-223.1c99.47 0 164.5 66.12 164.5 88.23c0 12.27-9.527 32.01-32.01 32.01c-31.32 0-45.8-56.25-132.5-56.25c-97.99 0-155.4 84.59-155.4 159.1c0 74.03 56.42 160 155.4 160C306.5 416 320.5 359.8 352 359.8z" />
                     </svg>
                 </div>
-                <div class="grid bg-transparent w-40 h-40">
-                    <img src="./images/cpplogo.png">
+                <div class="grid bg-transparent w-32 h-32">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 476 512">
+                    <path d="M463.5,143.5c-3.1-5.4-7.5-10.2-12.2-13L285.9,35.1c-9.5-5.5-25.1-5.5-34.6,0L86,130.6c-9.5,5.5-17.4,19-17.4,30v190.9
+			c0,5.5,2,11.6,5.1,17.1c3.1,5.4,7.5,10.2,12.2,12.9l165.2,95.5c9.6,5.5,25.1,5.5,34.6,0l165.3-95.5c4.8-2.7,9.1-7.5,12.2-12.9
+			c3.1-5.4,5-11.6,5-17.1V160.6C468.5,155.1,466.6,148.9,463.5,143.5L463.5,143.5z M268.6,389.3c-73.5,0-133.3-59.7-133.3-133.3
+			s59.7-133.3,133.3-133.3c47.6,0.1,91.6,25.5,115.4,66.6l-57.7,33.4c-11.9-20.6-33.9-33.3-57.7-33.3c-36.8,0-66.7,29.9-66.7,66.7
+			s29.9,66.7,66.7,66.7c23.8-0.1,45.8-12.8,57.7-33.3l57.7,33.4C360.1,363.8,316.2,389.2,268.6,389.3L268.6,389.3z M401.9,263.4
+			h-14.8v14.8h-14.9v-14.8h-14.8v-14.8h14.8v-14.8h14.9v14.8h14.8V263.4z M457.4,263.4h-14.8v14.8h-14.8v-14.8H413v-14.8h14.8v-14.8
+			h14.8v14.8h14.8V263.4z"/>
+                    </svg>
                 </div>
 
 
@@ -123,48 +176,11 @@
     </section>
     <!--               *****************   FOOTER SECTON  **************************  -->
 
-    <footer class="text-center text-white py-4 mt-6" style="background-color: #000000;">
-        <div class="container px-6 pt-3">
-            <div class="grid lg:grid-cols-7 md:grid-cols-3 gap-4">
-                <div class="lg:mb-0 mb-6">
-                    <div>
-                        <a href="./index.php">Home</a>
-                    </div>
-                </div>
-                <div class="lg:mb-0 mb-6">
-                    <div>
-                        <a href="#">About</a>
-                    </div>
-                </div>
-                <div class="lg:mb-0 mb-6">
-                    <div>
-                        <a href="#">Contact</a>
-                    </div>
-                </div>
-                <div
-                    class=" mb-6 text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF]">
-                    <div>
-                        <a href="./index.php">Scryptn</a>
-                    </div>
-                </div>
-                <div class="lg:mb-0 mb-6">
-                    <div>
-                        <a href="./compiler_page.php">Compiler</a>
-                    </div>
-                </div>
-                <div class="lg:mb-0 mb-6">
-                    <div>
-                        <a href="./Pages/term.html">Terms</a>
-                    </div>
-                </div>
-                <div class="lg:mb-0 mb-6">
-                    <div>
-                        <a href="./Pages/term.html">Policies</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+<?php
+
+include_once './includes/footer.php';
+
+?>
 
 </body>
 

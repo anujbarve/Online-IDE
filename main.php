@@ -12,7 +12,7 @@ include_once './includes/navbar-new.php';
 
 if (isset($_SESSION["userUid"])) {
 ?>
-<header class="-mb-6">
+<header class="">
   <div class="relative overflow-hidden bg-no-repeat bg-cover h-full " style="
     background-position: 50%;
     background-image: url('https://images.pexels.com/photos/3780104/pexels-photo-3780104.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');

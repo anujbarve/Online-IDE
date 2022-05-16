@@ -38,7 +38,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
 
-  <div class="p-5 container w-full main flex md:flex-row flex-col">
+  <div class="p-5 container w-full md:h-5/6 main flex md:flex-row flex-col">
     <div class="profile w-full md:w-1/3 flex justify-center">
       <!-- Profile -->
       <div class="rounded-lg bg-gray-200 max-w-sm">

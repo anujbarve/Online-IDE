@@ -7,9 +7,9 @@ let editorLib = {
 
         codeEditor.setOptions({
             fontSize:'12pt',
-            enableBasicAutocompletion: true,
+            enableBasicAutocompletion:true,
             enableLiveAutocompletion:true,
-            enableSnippets: true
+            enableSnippets:true
         })
     }
 }
