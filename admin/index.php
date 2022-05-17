@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require '../includes/header.php';
 
@@ -6,69 +6,79 @@ require '../includes/header.php';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<title>Retrieve Or Fetch Data From MySQL Database Using PHP With Boostrap</title>
-<?php include "head.php"; ?>
+    <meta charset="utf-8">
+    <title>Retrieve Or Fetch Data From MySQL Database Using PHP With Boostrap</title>
+    <?php include "head.php"; ?>
 
     <script type="text/javascript">
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();   
+        $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
 
 </head>
+
 <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 mx-auto">
-                    <div class="page-header clearfix">
-                        <h2 class="pull-left">Users List</h2>
-                        <a href="create.php" class="btn btn-success pull-right">Add New User</a>
+
+
+    <section class="h-full text-gray-400 bg-gray-900 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-col text-center w-full mb-20">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Our Team</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them.</p>
+            </div>
+            <div class="flex flex-wrap -m-2">
+
+
+                <?php
+                include_once 'connection.php';
+                $result = mysqli_query($conn, "SELECT * FROM users");
+                ?>
+
+                <?php
+                if (mysqli_num_rows($result) > 0) {
+                ?>
+                                    <?php
+                    $i = 0;
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+
+                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+                        <div class="h-full flex items-center border-gray-800 border p-4 rounded-lg">
+                            <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="<?php if (isset($row["user_photo"])) {
+                                                          echo "../user-data/profile-photos/" . $row["user_photo"];
+                                                        } else {
+                                                          echo "https://angularjs-template.herokuapp.com/sing-app/dist/demo/img/people/a5.jpg";
+                                                        } ?>">
+                            <div class="flex-grow">
+                                <h2 class="text-white title-font font-medium"><?php echo $row["userName"]; ?></h2>
+                                <?php echo $row["extension"]; ?>
+                                <p class="text-gray-600"><?php echo $row["user_name"]; ?></p>
+                            </div>
+                            <div class="flex-grow">
+                            <a href="update.php?id=<?php echo $row["id"]; ?>" title='Update Record'><p>Update</p></a>
+                            <a href="delete.php?id=<?php echo $row["id"]; ?>" title='Delete Record'><p>Delete</p></a>
+
+                            </div>
+                        </div>
                     </div>
-                   <?php
-                    include_once 'connection.php';
-                    $result = mysqli_query($conn,"SELECT * FROM user_files");
-                    ?>
 
                     <?php
-                    if (mysqli_num_rows($result) > 0) {
-                    ?>
-                      <table class='table table-bordered table-striped'>
-                      
-                      <tr>
-                        <td>Name</td>
-                        <td>Extension</td>
-                        <td>User Name</td>
-                        <td>Action</td>
-                      </tr>
-                    <?php
-                    $i=0;
-                    while($row = mysqli_fetch_array($result)) {
-                    ?>
-                    <tr>
-                        <td><?php echo $row["name"]; ?></td>
-                        <td><?php echo $row["extension"]; ?></td>
-                        <td><?php echo $row["user_name"]; ?></td>
-                        <td><a href="update.php?id=<?php echo $row["id"]; ?>" title='Update Record'><span class='glyphicon glyphicon-pencil'></span></a>
-                        <a href="delete.php?id=<?php echo $row["id"]; ?>" title='Delete Record'><i class='material-icons'><span class='glyphicon glyphicon-trash'></span></a>
-                        </td>
-                    </tr>
-                    <?php
-                    $i++;
+                        $i++;
                     }
                     ?>
-                    </table>
-                     <?php
-                    }
-                    else{
-                        echo "No result found";
-                    }
-                    ?>
+            <?php
+                } else {
+                    echo "No result found";
+                }
+            ?>
 
-                </div>
-            </div>     
+            </div>
         </div>
+    </section>
 
 </body>
+
 </html>
