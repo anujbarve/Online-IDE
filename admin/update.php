@@ -19,37 +19,49 @@ require_once "connection.php";
 <head>
     <meta charset="UTF-8">
     <title>Update Record</title>
-    <?php include "head.php"; ?>
 </head>
 <body>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="page-header">
-                        <h2>Update Record</h2>
-                    </div>
-                    <p>Please edit the input values and submit to update the record.</p>
-                    <form action="<?php echo htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>" method="post">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" name="name" class="form-control" value="<?php echo $row["name"]; ?>" maxlength="50" required="">
-                            
-                        </div>
-                        <div class="form-group ">
-                            <label>Email</label>
-                            <input type="email" name="email" class="form-control" value="<?php echo $row["email"]; ?>" maxlength="30" required="">
-                        </div>
-                        <div class="form-group">
-                            <label>Mobile</label>
-                            <input type="mobile" name="mobile" class="form-control" value="<?php echo $row["mobile"]; ?>" maxlength="12"required="">
-                        </div>
-                        <input type="hidden" name="id" value="<?php echo $row["id"]; ?>"/>
-                        <input type="submit" class="btn btn-primary" value="Submit">
-                        <a href="index.php" class="btn btn-default">Cancel</a>
-                    </form>
+<div class="bg-gray-900 w-full shadow p-8 sm:p-12">
+        <p class="text-3xl font-bold leading-7 text-center text-white">Add User</p>
+        <form action="../includes/register.inc.php" method="POST">
+            <div class="md:flex items-center mt-8">
+                <div class="w-full flex flex-col">
+                    <label class="font-semibold leading-none text-gray-300">Full Name</label>
+                    <input type="text" class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded" name="name"/>
                 </div>
-            </div>  
-        </div>
+
+            </div>
+            <div class="md:flex items-center mt-8">
+                <div class="w-full flex flex-col">
+                    <label class="font-semibold leading-none text-gray-300">Email</label>
+                    <input type="text" class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded" name="email" />
+                </div>
+
+            </div>
+            <div class="md:flex items-center mt-8">
+                <div class="w-full flex flex-col">
+                    <label class="font-semibold leading-none text-gray-300">Username</label>
+                    <input type="text" class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded" name="uid" />
+                </div>
+
+            </div>
+            <div class="md:flex items-center mt-12">
+                <div class="w-full md:w-1/2 flex flex-col">
+                    <label class="font-semibold leading-none text-gray-300">Password</label>
+                    <input type="password" class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded" name="pwd" />
+                </div>
+                <div class="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-4">
+                    <label class="font-semibold leading-none text-gray-300">Repeat Password</label>
+                    <input type="password" class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded" name="pwdrepeat" />
+                </div>
+            </div>
+            <div class="flex items-center justify-center w-full">
+                <button type="submit" name="create" class="mt-9 font-semibold leading-none text-white py-4 px-10 bg-blue-700 rounded hover:bg-blue-600 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:outline-none">
+                    Send message
+                </button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

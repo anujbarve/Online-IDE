@@ -1,6 +1,7 @@
 <?php
 
 require '../includes/header.php';
+require '../includes/navbar-new.php';
 
 ?>
 
@@ -80,5 +81,8 @@ require '../includes/header.php';
     </section>
 
 </body>
+<?php
+require '../includes/footer.php';
 
+?>
 </html>

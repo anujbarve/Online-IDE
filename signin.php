@@ -23,7 +23,7 @@
 
     <!-- GLOBAL CSS-->
     <link rel="stylesheet" type="text/css" href="../Stylesheets/global.css">
-    <title>Scryptn-Sign UP</title>
+    <title>Scryptn-Sign In</title>
 </head>
 
 <body>
