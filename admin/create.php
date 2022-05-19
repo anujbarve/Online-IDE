@@ -2,23 +2,6 @@
 require './header.php';
 require './nav.php';
 require_once "connection.php";
-
-if (isset($_POST['save'])) {
-    $name = $_POST['name'];
-    $extension = $_POST['extension'];
-    $username = $_SESSION['userUid'];
-    $source_code = mysqli_real_escape_string($conn, $_POST['source_code']);
-    $sql = "INSERT INTO user_files (name,extension,source_code,user_name)
-     VALUES ('$name','$extension','$source_code','$username')";
-    if (mysqli_query($conn, $sql)) {
-        header("location: index.php");
-        exit();
-    } else {
-        echo "Error: " . $sql . "
-" . mysqli_error($conn);
-    }
-    mysqli_close($conn);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">

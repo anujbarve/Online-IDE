@@ -76,7 +76,7 @@
                         </div>
                         <div class="form-group text-right">
                             <span class="text-sm text-black font-bold text-left px-1 hover:text-lg ">
-                                <a class="hover:no-underline hover:text-[#6AF0BF]" href="./signin.php">Already Have an Account? Sign In</a>
+                                <a class="hover:no-underline hover:text-[#6AF0BF]" href="./login.php">Already Have an Account? Sign In</a>
                             </span>
                         </div>
                         <div class="form-group justify-content-center">
@@ -91,7 +91,9 @@
         <div class="grid bg-black content-center justify-items-center">
             <h1
                 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF]">
-                SCRYPTN ADMIN REGISTRATION</h1>
+                SCRYPTN <br>
+                ADMIN <br>
+                REGISTRATION</h1>
         </div>
     </div>
 </body>

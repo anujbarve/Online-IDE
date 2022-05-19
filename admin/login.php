@@ -20,7 +20,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
+        <script src="../packages/tata.js/tata.js"></script>
     <!-- GLOBAL CSS-->
     <link rel="stylesheet" type="text/css" href="../Stylesheets/global.css">
     <title>Scryptn-Sign In</title>
@@ -54,7 +54,7 @@
                         </div>
                         <div class="form-group text-right">
                             <span class="text-sm text-black font-bold text-left px-1 hover:text-lg ">
-                                <a class="hover:no-underline hover:text-[#6AF0BF]" href="#">Forgot Password</a>
+                                <a class="hover:no-underline hover:text-[#6AF0BF]" href="./register.php">Don't Have an Account? Sign Up</a>
                             </span>
                         </div>
                         <div class="form-group justify-content-center">
@@ -69,7 +69,7 @@
         <div class="grid bg-black content-center justify-items-center">
             <h1
                 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF]">
-                SCRYPTN</h1>
+                SCRYPTN ADMIN LOGIN</h1>
         </div>
     </div>
 </body>
