@@ -1,7 +1,8 @@
 <?php
 
-require '../includes/header.php';
-require '../includes/navbar-new.php';
+require './checker.php';
+require './header.php';
+require './nav.php';
 
 ?>
 
@@ -11,7 +12,6 @@ require '../includes/navbar-new.php';
 <head>
     <meta charset="utf-8">
     <title>Retrieve Or Fetch Data From MySQL Database Using PHP With Boostrap</title>
-    <?php include "head.php"; ?>
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -27,8 +27,8 @@ require '../includes/navbar-new.php';
     <section class="h-full text-gray-400 bg-gray-900 body-font">
         <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-col text-center w-full mb-20">
-                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Our Team</h1>
-                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them.</p>
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Registered Users</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base"><p>
             </div>
             <div class="flex flex-wrap -m-2">
 
@@ -54,13 +54,17 @@ require '../includes/navbar-new.php';
                                                           echo "https://angularjs-template.herokuapp.com/sing-app/dist/demo/img/people/a5.jpg";
                                                         } ?>">
                             <div class="flex-grow">
-                                <h2 class="text-white title-font font-medium"><?php echo $row["userName"]; ?></h2>
+<a href="view_user.php?id=<?php echo $row["userID"]; ?>&Uid=<?php echo $row["userUid"]; ?>">
+<h2 class="text-white title-font font-medium"><?php echo $row["userName"]; ?></h2>
+</a>
+
+                                
                                 <?php echo $row["extension"]; ?>
                                 <p class="text-gray-600"><?php echo $row["user_name"]; ?></p>
                             </div>
                             <div class="flex-grow">
-                            <a href="update.php?id=<?php echo $row["id"]; ?>" title='Update Record'><p>Update</p></a>
-                            <a href="delete.php?id=<?php echo $row["id"]; ?>" title='Delete Record'><p>Delete</p></a>
+                            <a href="update.php?id=<?php echo $row["userID"]; ?>" title='Update Record'><p>Update</p></a>
+                            <a href="delete.php?id=<?php echo $row["userID"]; ?>" title='Delete Record'><p>Delete</p></a>
 
                             </div>
                         </div>

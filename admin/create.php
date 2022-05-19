@@ -1,6 +1,6 @@
 <?php
-require '../includes/header.php';
-require '../includes/navbar-new.php';
+require './header.php';
+require './nav.php';
 require_once "connection.php";
 
 if (isset($_POST['save'])) {
@@ -26,7 +26,6 @@ if (isset($_POST['save'])) {
 <head>
     <meta charset="UTF-8">
     <title>Add User</title>
-    <?php include "head.php"; ?>
 </head>
 
 <body>

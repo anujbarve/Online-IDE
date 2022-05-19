@@ -134,4 +134,76 @@ function loginUser($conn,$username,$pwd){
     }
 }
 
+function uidExistsAdmin($conn,$username,$email){
+    $sql = "SELECT * FROM admins WHERE username = ? OR email = ?";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location: ./login.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt,"ss",$username,$email);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    }else{
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function loginAdmin($conn,$username,$pwd){
+    $uidExist = uidExistsAdmin($conn,$username,$username);
+
+    if ($uidExist === false) {
+        header("location: ./login.php?error=wronglogin");
+        exit();
+    }
+
+    $pwdHashed = $uidExist["password"];
+    $checkPwd = password_verify($pwd,$pwdHashed);
+
+    if($checkPwd === false){
+        header("location: ./login.php?error=wronglogin");
+        exit();
+    }else if($checkPwd === true){
+        session_start();
+        $_SESSION["username"] = $uidExist["username"];
+        $_SESSION["email"] = $uidExist["email"];
+        header("location: ./index.php");
+        exit();
+    }
+}
+
+
+function security_code_checker($code){
+    if($code === 7596526){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function createAdmin($conn,$email,$username,$pwd,$security_code){
+    $sql = "INSERT INTO admins (username,password,email,security_code) VALUES (?,?,?,?) ";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        header("location: ../admin/register.php?error=stmtfailed");
+        exit();
+    }
+
+    $hashedPwd = password_hash($pwd,PASSWORD_DEFAULT);
+
+    mysqli_stmt_bind_param($stmt,"ssss",$username,$hashedPwd,$email,$security_code);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../admin/login.php");
+    exit();
+}
+
 ?>

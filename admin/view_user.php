@@ -1,6 +1,5 @@
-<?php include './includes/header.php'; ?>
-<?php include './includes/navbar-new.php'; ?>
-<?php include './includes/checker.php'; ?>
+<?php include './header.php'; ?>
+<?php include './nav.php'; ?>
 
 <body>
 
@@ -8,18 +7,6 @@
     * {
       box-sizing: border-box;
     }
-
-    /* .main{
-  background-color: red;
-}
-
-.profile{
-  background-color: yellow;
-}
-
-.files{
-  background-color: blue;
-} */
 
     .profile-photo {
       border-radius: 50%;
@@ -29,8 +16,8 @@
 
   <?php
 
-  include './includes/dbh.inc.php';
-  $id = $_SESSION["userID"];
+  include '../includes/dbh.inc.php';
+  $id = $_GET["id"];
   $result = mysqli_query($conn, "SELECT * FROM `users` WHERE `userID` = $id;");
   $row = mysqli_fetch_array($result);
 
@@ -45,7 +32,7 @@
       <div class="rounded-lg bg-gray-200 max-w-sm">
         <a class="m-8 flex justify-center" data-mdb-ripple="true" data-mdb-ripple-color="light">
           <img class="profile-photo" width="200px" src="<?php if (isset($row["user_photo"])) {
-                                                          echo "./user-data/profile-photos/" . $row["user_photo"];
+                                                          echo "../user-data/profile-photos/" . $row["user_photo"];
                                                         } else {
                                                           echo "https://angularjs-template.herokuapp.com/sing-app/dist/demo/img/people/a5.jpg";
                                                         } ?>" alt="" />
@@ -97,7 +84,7 @@
             <div class="overflow-hidden">
             <?php
               include_once './includes/dbh.inc.php';
-              $uid = $_SESSION["userUid"];
+              $uid = $_GET["Uid"];
               $result = mysqli_query($conn, "SELECT * FROM `user_files` WHERE `user_name` = '$uid';");
               ?>
               <?php
@@ -129,13 +116,13 @@
                   <td class="flex justify-center px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><?php $i = $row["extension"]; if( $i == "71" ){echo "<i class='fa-brands fa-python'></i>";}; ?></td>
 
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  <a href="./online_compiler.php?filename=<?php echo $row['name'];?>">
+                  <a href="../online_compiler.php?filename=<?php echo $row['name'];?>">
                   <?php echo $row["name"]; ?>
                   </a>
                   </td>
 
                   <td class="flex justify-center p-4">
-                    <a href="./admin/delete_file.php?id=<?php echo $row["id"]; ?>">
+                    <a href="delete_file_admin.php?id=<?php echo $row["id"]; ?>">
                     <i class="fa-solid fa-trash"></i>
                     </a>
 
@@ -165,6 +152,6 @@
 
 </body>
 
-<?php include './includes/footer.php' ?>
+<?php include '../includes/footer.php' ?>
 
 </html>
