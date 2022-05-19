@@ -83,7 +83,23 @@ require './nav.php';
             </div>
         </div>
     </section>
-
+    <script>
+    <?php 
+    
+    if(isset($_GET['message'])){
+        echo 'tata.warning("Success Message","Login Successful",{
+            position: "br",
+            duration: 5000
+        })';
+    }
+    ?>
+    </script>
+    <script>
+        tata.success("Success Message","Login Successful",{
+            position: "br",
+            duration: 5000
+        })
+    </script>
 </body>
 <?php
 require '../includes/footer.php';
