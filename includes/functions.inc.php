@@ -175,7 +175,7 @@ function loginAdmin($conn,$username,$pwd){
         session_start();
         $_SESSION["username"] = $uidExist["username"];
         $_SESSION["email"] = $uidExist["email"];
-        header("location: ./index.php");
+        header("location: ./index.php?message=login_success");
         exit();
     }
 }

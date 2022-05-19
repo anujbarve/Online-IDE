@@ -174,8 +174,22 @@ include_once './includes/navbar-new.php';
 
         </div>
     </section>
+    
     <!--               *****************   FOOTER SECTON  **************************  -->
+<script>
+    <?php
+    if(isset($_GET['message'])){
+        $message = $_GET['message'];
+        if($message == "logged_out"){
+            echo 'tata.info("Info Message","User Logged Out",{
+                position: "br",
+                duration: 5000
+            })';
+        }
+    }
 
+?>
+</script>
 <?php
 
 include_once './includes/footer.php';

@@ -23,5 +23,5 @@ session_start();
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
-
+    <script src="./packages/tata.js/tata.js"></script>
 </head>

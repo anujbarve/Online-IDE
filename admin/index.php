@@ -87,18 +87,21 @@ require './nav.php';
     <?php 
     
     if(isset($_GET['message'])){
-        echo 'tata.warning("Success Message","Login Successful",{
-            position: "br",
-            duration: 5000
-        })';
+        $message = $_GET['message'];
+        if($message == "user_deleted"){
+            echo 'tata.info("Info Message","User Deleted",{
+                position: "br",
+                duration: 5000
+            })';
+        }else if($message = "login_success"){
+            echo 'tata.success("Success Message","Login Successful",{
+                position: "br",
+                duration: 5000
+            })';
+        }
+
     }
     ?>
-    </script>
-    <script>
-        tata.success("Success Message","Login Successful",{
-            position: "br",
-            duration: 5000
-        })
     </script>
 </body>
 <?php
