@@ -74,6 +74,9 @@ if (isset($_GET['filename'])) {
     $fname = $_GET['filename'];
     $result = mysqli_query($conn, "SELECT * FROM `user_files` WHERE `name` = '$fname'");
     $row = mysqli_fetch_array($result);
+    $status = 1;
+} else {
+    $status = 0;
 }
 
 ?>
@@ -81,6 +84,56 @@ if (isset($_GET['filename'])) {
 
 <div class="container place-content-center w-full p-1">
 
+    <!-- MODAL  -->
+
+    <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto" id="exampleModalLg" tabindex="-1" aria-labelledby="exampleModalLgLabel" aria-modal="true" role="dialog">
+        <div class="modal-dialog modal-lg relative w-auto pointer-events-none">
+            <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+                <div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+                    <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalLgLabel">
+                        Share Program as Post
+                    </h5>
+                    <button type="button" class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline" data-bs-dismiss="modal" aria-label="Close">X</button>
+                </div>
+                <div class="modal-body relative p-4">
+                    <form action="./includes/new_post.php" method="post" enctype="multipart/form-data">
+                        <div class="flex flex-row items-center justify-center lg:justify-start">
+                        </div>
+                        <div class="mb-6">
+                            <input type="text" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name="username" value="<?php if (isset($_SESSION["userUid"])) {
+                                                                                                                                                                                                                                                                                                                                                                        echo $_SESSION["userUid"];
+                                                                                                                                                                                                                                                                                                          } ?>" placeholder="Username" />
+                        </div>
+
+
+                        <div class="mb-6">
+                            <input type="text" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name="title" placeholder="Title" />
+                        </div>
+                        <div class="mb-6">
+                        <select name="lang" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                        <option selected value="71">Python</option>
+                        <option value="62">Java</option>
+                        <option value="50">C</option>
+                        <option value="54">C++</option>
+                        <option value="63">Javascript</option>
+                    </select>
+                        </div>
+                        <div class="mb-6">
+                            <textarea type="text" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name="description" placeholder="Description"></textarea>
+                        </div>
+
+                        <div class="text-center">
+                            <button name="submit" type="submit" class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                                POST
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /MODAL -->
     <form action="./includes/compiler.php" method="post">
 
         <div class="hidden md:grid md:ml-6 mt-6 ml-1 mb-6 grid grid-rows-2 grid-col-1 md:grid-col-3 grid-flow-row md:grid-flow-col h-full w-full">
@@ -104,8 +157,8 @@ if (isset($_GET['filename'])) {
                                                                                                                                                                             } ?></textarea>
                 </div>
                 <div class="flex flex-col md:flex-row place-content-end">
-                    
-                    <select  name="lang" class="form-select appearance-none
+
+                    <select name="lang" class="form-select appearance-none
       block
       w-32
       px-3
@@ -129,8 +182,12 @@ if (isset($_GET['filename'])) {
 
                     <button name="submit" type="submit" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Run</button>
                     <?php if (isset($_SESSION["userUid"])) { ?>
-                        <button name="save" type="save" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Save</button>
-                        <button class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Share</button>
+                        <?php if (isset($_GET['filename'])) { ?>
+                            <button name="update" type="update" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Update</button>
+                        <?php } else { ?>
+                            <button name="save" type="save" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Save</button>
+                        <?php } ?>
+                        <div name="share" type="share" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg" data-bs-toggle="modal" data-bs-target="#exampleModalLg">Share</div>
                     <?php } ?>
                 </div>
 
@@ -174,7 +231,7 @@ if (isset($_GET['filename'])) {
 
             </div>
             <div style=" background-color: #2E2E2E;" class="row-span-1 flex flex-row place-content-end p-2">
-            <select  name="lang" class="form-select appearance-none
+                <select name="lang" class="form-select appearance-none
       block
       w-32
       px-3
@@ -189,16 +246,20 @@ if (isset($_GET['filename'])) {
       ease-in-out
       m-0
       focus:text-white focus:bg-[#193E46] focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                        <option selected value="71">Python</option>
-                        <option value="62">Java</option>
-                        <option value="50">C</option>
-                        <option value="54">C++</option>
-                        <option value="63">Javascript</option>
-                    </select>
+                    <option selected value="71">Python</option>
+                    <option value="62">Java</option>
+                    <option value="50">C</option>
+                    <option value="54">C++</option>
+                    <option value="63">Javascript</option>
+                </select>
                 <button class="text-black m-1 px-2 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg" type="submit" name="submit">Run</button>
                 <?php if (isset($_SESSION["userUid"])) { ?>
-                    <button class="text-black m-1 px-2 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Share</button>
-                    <button name="save" type="save" class="text-black m-1 px-2 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg" type="save" name="save">Save</button>
+                    <?php if (isset($_GET['filename'])) { ?>
+                        <button name="update" type="update" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Update</button>
+                    <?php } else { ?>
+                        <button name="save" type="save" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Save</button>
+                    <?php } ?>
+                    <div class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg" data-bs-toggle="modal" data-bs-target="#exampleModalLg" >Share</div>
                 <?php } ?>
             </div>
             <div class="input row-span-2">

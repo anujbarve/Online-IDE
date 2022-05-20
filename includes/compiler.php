@@ -81,7 +81,25 @@ if ($err) {
 	$decoded = json_decode($response);
     $output = $decoded->stdout;
     $final_output = base64_decode($output);
-    header("location: ../online_compiler.php?output=$final_output");
+    // header("location: ../online_compiler.php?output=$final_output");
+	$status_id = $decoded->status->id;
+	$error = $decoded->status->description;
+
+	if($status_id == "3"){
+		header("location: ../online_compiler.php?output=$final_output");
+	}else{
+		header("location: ../online_compiler.php?output=$error");
+	}
+
+	echo "<h1>RESPONSE</h1>";
+	echo $response;
+	echo "<br>";
+	echo "<h1>STATUS</h1>";
+	echo "<br>";
+	echo $status_id;
+	echo "<h1>ERROR DESC</h1>";
+	echo "<br>";
+	echo $error;
 }
 }
 
@@ -105,6 +123,21 @@ elseif (isset($_POST['save'])) {
 	}
 	mysqli_close($conn);	
 
+}elseif(isset($_POST['update'])){
+	require_once "../admin/connection.php";
+	$name = $_POST['filename'];
+	$lang = $_POST["lang"];
+	$scode = mysqli_real_escape_string($conn,$_POST["scode"]);
+	$username = $_SESSION['userUid'];
+	$sql = "UPDATE `user_files` SET `extension`='$lang',`source_code`='$scode',`user_name`='$username' WHERE `name` = '$name'";
+	if (mysqli_query($conn, $sql)) {
+	   header("location: ../online_compiler.php?message=file_updated_successfully");
+	   exit();
+	} else {
+	   echo "Error: " . $sql . "
+" . mysqli_error($conn);
+	}
+	mysqli_close($conn);	
 }
 
 
