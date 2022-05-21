@@ -40,6 +40,13 @@
             >Admin Panel</a
           >
         </li>
+        <li class="nav-item p-2">
+          <a
+            class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
+            href="./admin-feed.php"
+            >User Feed Moderation</a
+          >
+        </li>
       </ul>
       <!-- Left links -->
     </div>

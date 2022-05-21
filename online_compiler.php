@@ -111,11 +111,11 @@ if (isset($_GET['filename'])) {
                         </div>
                         <div class="mb-6">
                         <select name="lang" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                        <option selected value="71">Python</option>
-                        <option value="62">Java</option>
-                        <option value="50">C</option>
-                        <option value="54">C++</option>
-                        <option value="63">Javascript</option>
+                        <option selected value="python">Python</option>
+                        <option value="java">Java</option>
+                        <option value="c">C</option>
+                        <option value="cpp">C++</option>
+                        <option value="js">Javascript</option>
                     </select>
                         </div>
                         <div class="mb-6">
