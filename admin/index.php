@@ -58,9 +58,6 @@ require './nav.php';
 <h2 class="text-white title-font font-medium"><?php echo $row["userName"]; ?></h2>
 </a>
 
-                                
-                                <?php echo $row["extension"]; ?>
-                                <p class="text-gray-600"><?php echo $row["user_name"]; ?></p>
                             </div>
                             <div class="flex-grow">
                             <a href="update.php?id=<?php echo $row["userID"]; ?>" title='Update Record'><p>Update</p></a>
