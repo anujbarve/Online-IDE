@@ -86,7 +86,8 @@ if ($err) {
 	$error = $decoded->status->description;
 
 	if($status_id == "3"){
-		header("location: ../online_compiler.php?output=$final_output");
+		header("location: ../online_compiler.php?output=success");
+		$_SESSION['final_output'] = nl2br($final_output);
 	}else{
 		header("location: ../online_compiler.php?output=$error");
 	}

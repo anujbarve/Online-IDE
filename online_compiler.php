@@ -200,8 +200,8 @@ if (isset($_GET['filename'])) {
             <div class="output h-128" style="overflow: auto;">
                 <?php
 
-                if (isset($_GET["output"])) {
-                    echo $_GET["output"];
+                if (isset($_SESSION["final_output"])) {
+                    echo $_SESSION["final_output"];
                 }
                 ?>
             </div>
@@ -268,9 +268,9 @@ if (isset($_GET['filename'])) {
             <div class="output">
                 <?php
 
-                if (isset($_GET["output"])) {
-                    echo $_GET["output"];
-                }
+if (isset($_SESSION["final_output"])) {
+    echo $_SESSION["final_output"];
+}
                 ?>
             </div>
 
