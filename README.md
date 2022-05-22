@@ -1,13 +1,4 @@
 <div id="top"></div>
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -15,19 +6,10 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">ONLINE IDE - SCRYPTN</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    An Awesome web based IDE
   </p>
 </div>
 
@@ -66,16 +48,13 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+This project is being developed to make, the overwhelming world of programming
+a bit more welcoming, so the project is to make an online IDE, using the various open source technologies, and web development, so the scope of the project is not just limited to the third project of diploma, but it’s much more than, it’s a continuous project for years to come.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+So the basic idea of this project to make a website, a full website with registration and sign in functionality, using the backend by PHP, and the front end using HTML, CSS, JS  and the a few extra frameworks to make the website fast, responsive and easy to use for the users
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+In this project,  five online compilers namely, Online C, C++, java, python, and Javascript language compiler using cloud computing which reduces the problem of portability and storage space by making the use of cloud computing, online java compiler using cloud computing, which provides most convenient tool to compile code and remove the errors. These seven compilers provide online compiler service, so no need to install a separate compiler on each system machine To generate PaaS service using cloud computing for compilation purposes in college campuses. A centralized server will have all legal data and software and other systems can access it online. Platform as a Service allows clients to create and manage software applications using tools supplied by the provider.
 
-Use the `BLANK_README.md` to get started.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -83,16 +62,15 @@ Use the `BLANK_README.md` to get started.
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+This project is mainly built using PHP but there are many more languages we used such as : 
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+* [PHP](https://www.php.net/)
+* [JS](https://www.javascript.com/)
+* [HTML](https://html.com/)
+* [CSS]
+* [TAILWIND CSS](https://tailwindcss.com/)
+* [cURL](https://curl.se/)
+* [MySQL](https://www.mysql.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -101,34 +79,22 @@ This section should list any major frameworks/libraries used to bootstrap your p
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Firstly download the project and paste it in a separate folder in XAMPP htdocs
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+1. APACHE SERVER
+2. MySQL SERVER 
+
+Just install XAMPP ;)
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+1. Clone the repo
+2. Move the repo in the XAMPP htdocs folder
+3. create a database name "scr"
+4. import the given SQL file from the repo 
+5. Done
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -138,8 +104,6 @@ _Below is an example of how you can instruct your audience on installing and set
 ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
