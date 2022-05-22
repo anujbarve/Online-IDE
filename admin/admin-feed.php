@@ -15,7 +15,7 @@ require './nav.php';
 
 <body>
 
-<section class="h-full text-gray-400 bg-gray-900 body-font">
+<section class="text-gray-400 bg-gray-900 body-font">
 <div class="container px-5 py-24 mx-auto">
 <div class="flex flex-col text-center w-full mb-20">
                 <h1 class="sm:text-3xl text-2xl font-medium title-font text-white">User Posts</h1>
@@ -62,8 +62,12 @@ require './nav.php';
               <?php echo $row['username']; ?>
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  <a href="./delete_post.php?id=<?php echo $row['id']?>">
-                  Delete  
+              <a href="./delete_post.php?id=<?php echo $row['id']?>">
+              <button type="button" class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
+                Delete  
+              </button>
+                  
+                  
                   </a>
               </td>
             </tr class="bg-white border-b">

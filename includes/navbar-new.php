@@ -36,7 +36,7 @@
                         <a href="./index.php">Scryptn</a>
     </div>
       <!-- Left links -->
-      <ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
+      <!-- <ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
         <li class="nav-item p-2">
           <a class="nav-link text-white" href="./online_compiler.php">Online Compiler</a>
         </li>
@@ -54,7 +54,7 @@
             >Feed</a
           >
         </li>
-      </ul>
+      </ul> -->
       <!-- Left links -->
     </div>
     <!-- Collapsible wrapper -->
@@ -96,6 +96,13 @@
               class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
               href="./online_compiler.php"
               >Online Compiler</a
+            >
+          </li>
+          <li>
+            <a
+              class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+              href="./feed.php"
+              >Feed</a
             >
           </li>
           <li>
@@ -157,19 +164,22 @@
                         <a href="./index.php">Scryptn</a>
     </div>
       <!-- Left links -->
-      <ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
+      <!-- <ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
         <li class="nav-item p-2">
           <a class="nav-link text-white" href="./online_compiler.php">Online Compiler</a>
         </li>
-        <li class="nav-item p-2">
-          <a
-            class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
-            href="./user_dash.php"
-            >Dashboard</a
-          >
-        </li>
-      </ul>
+      </ul> -->
       <!-- Left links -->
+    </div>
+    <div class="flex items-center relative">
+      
+      <!-- Icon -->
+      <a class="text-white opacity-60 hover:opacity-80 focus:opacity-80 mr-4" href="./signup.php">
+        Online Compiler
+      </a>
+      <a class="text-white opacity-60 hover:opacity-80 focus:opacity-80 mr-4" href="./signup.php">
+      Sign Up
+      </a>
     </div>
     <!-- Collapsible wrapper -->
   </div>

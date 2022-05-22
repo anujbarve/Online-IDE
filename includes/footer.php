@@ -1,5 +1,5 @@
 <div class="bg-gray-800" style="background-color: #000000;">
-    <div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
+    <div class="container px-4 py-4 mx-auto flex items-center sm:flex-row flex-col">
         <a class="flex title-font font-medium items-center md:justify-start justify-center text-white">
             <div class="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF]">
                 <div>

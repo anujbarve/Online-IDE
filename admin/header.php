@@ -2,6 +2,11 @@
 
 session_start();
 
+if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
+
+    header ("Location: ./login.php");
+    
+}
 ?>
 
 <head>
@@ -13,10 +18,10 @@ session_start();
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- GLOBAL CSS-->
-    <link rel="stylesheet" type="text/css" href="./Stylesheets/global.css">
+    <link rel="stylesheet" type="text/css" href="../Stylesheets/global.css">
 
     <!-- HOME CSS -->
-    <link rel="stylesheet" type="text/css" href="./Stylesheets/home.css">
+    <link rel="stylesheet" type="text/css" href="../Stylesheets/home.css">
 
     <!-- FONT AWESOME -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />

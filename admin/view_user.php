@@ -83,7 +83,7 @@
           <div class="inline-block w-full">
             <div class="overflow-hidden">
             <?php
-              include_once './includes/dbh.inc.php';
+              include_once '../includes/dbh.inc.php';
               $uid = $_GET["Uid"];
               $result = mysqli_query($conn, "SELECT * FROM `user_files` WHERE `user_name` = '$uid';");
               ?>
