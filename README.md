@@ -46,7 +46,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+![image](https://user-images.githubusercontent.com/56199413/169698277-affc7081-16e9-4277-8b3f-6e2f6370b1f5.png)
 
 This project is being developed to make, the overwhelming world of programming
 a bit more welcoming, so the project is to make an online IDE, using the various open source technologies, and web development, so the scope of the project is not just limited to the third project of diploma, but it’s much more than, it’s a continuous project for years to come.
