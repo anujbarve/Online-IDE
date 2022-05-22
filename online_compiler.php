@@ -75,9 +75,13 @@ if (isset($_GET['filename'])) {
     $result = mysqli_query($conn, "SELECT * FROM `user_files` WHERE `name` = '$fname'");
     $row = mysqli_fetch_array($result);
     $status = 1;
-} else {
-    $status = 0;
+} elseif(isset($_SESSION['fname'])){
+    $fname = $_SESSION['fname'];
+    $result = mysqli_query($conn, "SELECT * FROM `user_files` WHERE `name` = '$fname'");
+    $row = mysqli_fetch_array($result);
+    $status = 1;
 }
+
 
 ?>
 
@@ -98,6 +102,11 @@ if (isset($_GET['filename'])) {
                 <div class="modal-body relative p-4">
                     <form action="./includes/new_post.php" method="post" enctype="multipart/form-data">
                         <div class="flex flex-row items-center justify-center lg:justify-start">
+                        </div>
+                        <div class="mb-6">
+                            <input type="text" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name="fname" value="<?php if (isset($_SESSION["fname"])) {
+                                                                                                                                                                                                                                                                                                                                                                        echo $_SESSION["fname"];
+                                                                                                                                                                                                                                                                                                          } ?>" placeholder="File Name" />
                         </div>
                         <div class="mb-6">
                             <input type="text" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name="username" value="<?php if (isset($_SESSION["userUid"])) {

@@ -89,7 +89,8 @@ if ($err) {
 		header("location: ../online_compiler.php?output=success");
 		$_SESSION['final_output'] = nl2br($final_output);
 	}else{
-		header("location: ../online_compiler.php?output=$error");
+		header("location: ../online_compiler.php?output=error");
+		$_SESSION['final_output'] = nl2br($error);
 	}
 
 	echo "<h1>RESPONSE</h1>";

@@ -130,7 +130,10 @@
 
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                   <a href="./online_compiler.php?filename=<?php echo $row['name'];?>">
-                  <?php echo $row["name"]; ?>
+                  <?php echo $row["name"]; 
+                  $_SESSION['fname'] = $row['name'];
+                  
+                  ?>
                   </a>
                   </td>
 

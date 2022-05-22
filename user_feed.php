@@ -1,7 +1,7 @@
 <?php
 
-require './header.php';
-require './nav.php';
+require './includes/header.php';
+require './includes/navbar-new.php';
 
 ?>
 <!DOCTYPE html>
@@ -9,11 +9,15 @@ require './nav.php';
 
 <head>
     <meta charset="utf-8">
-    <title>User Post Moderation</title>
+    <title>User Post Feed</title>
 
 </head>
 
 <body>
+
+<!-- Modal -->
+
+
 <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto" id="exampleModalLg" tabindex="-1" aria-labelledby="exampleModalLgLabel" aria-modal="true" role="dialog">
         <div class="modal-dialog modal-lg relative w-auto pointer-events-none">
             <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
@@ -83,7 +87,7 @@ require './nav.php';
     <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
       <div class="overflow-hidden">
         <table class="min-w-full text-center">
-          <thead class="bg-black">
+          <thead class="border-b bg-gray-800">
             <tr>
               <th scope="col" style="width:10%;" class="text-sm font-medium text-white px-6 py-4">
                 ID
@@ -98,36 +102,36 @@ require './nav.php';
                 Operations
               </th>
             </tr>
-          </thead class="">
+          </thead class="border-b">
           <tbody>
 <?php
- include '../includes/dbh.inc.php';
+ include './includes/dbh.inc.php';
  $uname = $_SESSION["userUid"];
- $result = mysqli_query($conn, "SELECT * FROM `user_posts`");
+ $result = mysqli_query($conn, "SELECT * FROM `user_posts` WHERE `username` = '$uname'");
  if (mysqli_num_rows($result) > 0) {
    $i = 0;
    while ($row = mysqli_fetch_array($result)) {
        ?>
 
-          <tr class="bg-gray-800 text-white">
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+          <tr class="bg-white border-b">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                 <?php echo $row['id']; ?>
               </td>
-              <td class="text-sm font-light px-6 py-4 whitespace-nowrap">
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
               <?php echo $row['title']; ?>
               </td>
-              <td class="text-sm font-light px-6 py-4 whitespace-nowrap">
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
               <?php echo $row['username']; ?>
               </td>
-              <td class="text-sm font-light px-6 py-4 whitespace-nowrap">
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
               <button type="button" class="inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"  data-bs-toggle="modal" data-bs-target="#exampleModalLg" >Update</button>
-              <a href="./delete_post.php?id=<?php echo $row['id']?>">
+              <a href="./includes/delete_post.php?id=<?php echo $row['id']?>">
               <button type="button" class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
                 Delete  
    </button>                
                   </a>
               </td>
-            </tr class="bg-white">
+            </tr class="bg-white border-b">
 <?php 
 $i++;
 } 
@@ -149,6 +153,6 @@ $i++;
 </body>
 
 <?php
-require '../includes/footer.php';
+require './includes/footer.php';
 ?>
 </html>
