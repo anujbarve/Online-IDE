@@ -44,13 +44,13 @@
       <!-- Profile -->
       <div class="rounded-lg bg-gray-200 max-w-sm">
         <a class="m-8 flex justify-center" data-mdb-ripple="true" data-mdb-ripple-color="light">
-          <img class="profile-photo" width="200px" src="<?php if (isset($row["user_photo"])) {
+          <img class="bg-gray-100 object-cover object-center flex-shrink-0 rounded-full" width="200px" src="<?php if (isset($row["user_photo"])) {
                                                           echo "./user-data/profile-photos/" . $row["user_photo"];
                                                         } else {
                                                           echo "https://angularjs-template.herokuapp.com/sing-app/dist/demo/img/people/a5.jpg";
                                                         } ?>" alt="" />
         </a>
-        <div class="p-6">
+        <div class="-mt-8 p-6">
           <h5 class="text-gray-900 text-xl font-medium mb-2"><?php echo $row["userName"] ?></h5>
           <p class="text-gray-700 text-base mb-4">
             <?php
@@ -126,13 +126,12 @@
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
                   <tr class="border-b">
-                  <td class="flex justify-center px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><?php $i = $row["extension"]; if( $i == "71" ){echo "<i class='fa-brands fa-python'></i>";}; ?></td>
+                  <td class="flex justify-center px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><?php $i = $row["extension"]; if( $i == "71" ){echo "<i class='fa-brands fa-python'></i>";};if( $i == "62" ){echo "<i class='fa-brands fa-java'></i>";};if( $i == "50" ){echo "<i class='fa-solid fa-c'></i>";}; if( $i == "54" ){echo "<i class='fa-solid fa-copyright'></i>";}; if( $i == "63" ){echo "<i class='fa-brands fa-js-square'></i>";};?></td>
 
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                   <a href="./online_compiler.php?filename=<?php echo $row['name'];?>">
                   <?php echo $row["name"]; 
                   $_SESSION['fname'] = $row['name'];
-                  
                   ?>
                   </a>
                   </td>
@@ -141,8 +140,6 @@
                     <a href="./admin/delete_file.php?id=<?php echo $row["id"]; ?>">
                     <i class="fa-solid fa-trash"></i>
                     </a>
-
-
                   </tr>
                 <?php
                   $i++;
@@ -154,11 +151,18 @@
               <?php
               } else {
                 echo "No result found";
+                
               }
               ?>
+                  
             </div>
           </div>
         </div>
+        <a href="./online_compiler.php">
+
+        <button type="button" class="inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out">Add New File</button>
+        <?php $_SESSION['fname'] = "";unset($_SESSION['final_output']); ?>
+        </a>
       </div>
 
       <!-- /Files -->

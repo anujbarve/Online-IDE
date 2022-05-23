@@ -104,9 +104,7 @@ if (isset($_GET['filename'])) {
                         <div class="flex flex-row items-center justify-center lg:justify-start">
                         </div>
                         <div class="mb-6">
-                            <input type="text" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name="fname" value="<?php if (isset($_SESSION["fname"])) {
-                                                                                                                                                                                                                                                                                                                                                                        echo $_SESSION["fname"];
-                                                                                                                                                                                                                                                                                                          } ?>" placeholder="File Name" />
+                            <input type="text" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name="fname" value="<?php echo $fname;?>" placeholder="File Name" />
                         </div>
                         <div class="mb-6">
                             <input type="text" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name="username" value="<?php if (isset($_SESSION["userUid"])) {
@@ -151,18 +149,10 @@ if (isset($_GET['filename'])) {
                 <div class="row-span-3">
                     <textarea class="w-full h-8 m-1" type="text" style="background-color: #2E2E2E;border:none;" name="filename" id="filename" placeholder="Filename"><?php if (isset($row["name"])) {
                                                                                                                                                                             echo $row["name"];
-                                                                                                                                                                        } else {
-                                                                                                                                                                            if (isset($_SESSION['filename'])) {
-                                                                                                                                                                                echo $_SESSION['filename'];
-                                                                                                                                                                            };
-                                                                                                                                                                        } ?></textarea>
+                                                                                                                                                                        }?></textarea>
 
                     <textarea class="w-full h-[33rem] m-1" type="text" style="background-color: #2E2E2E;border:none;" name="scode" id="scode" placeholder="Program Code"><?php if (isset($row["source_code"])) {
                                                                                                                                                                                 echo $row["source_code"];
-                                                                                                                                                                            } else {
-                                                                                                                                                                                if (isset($_SESSION['scode'])) {
-                                                                                                                                                                                    echo $_SESSION['scode'];
-                                                                                                                                                                                };
                                                                                                                                                                             } ?></textarea>
                 </div>
                 <div class="flex flex-col md:flex-row place-content-end">
@@ -181,8 +171,36 @@ if (isset($_GET['filename'])) {
       transition
       ease-in-out
       m-0
-      focus:text-white focus:bg-[#193E46] focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                        <option selected value="71">Python</option>
+focus:text-white focus:bg-[#193E46] focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+<?php 
+
+function extension($var){
+    if ($var == "71") {
+        return "Python";
+    } elseif($var == "62") {
+        return "Java";
+    } elseif($var == "50"){
+        return "C";
+    } elseif($var == "54"){
+        return "C++";
+    } elseif($var == "63"){
+        return "Javascript";
+    } else{
+        return "None";
+    }
+    
+}
+
+
+if (isset($row["extension"])) {
+
+$extension = $row["extension"];
+
+$varname = extension($extension);
+echo "<option selected value='$extension'>$varname</option>";
+}else{
+echo "<option selected value='71'>Python</option>";    
+} ?>  
                         <option value="62">Java</option>
                         <option value="50">C</option>
                         <option value="54">C++</option>
@@ -224,18 +242,10 @@ if (isset($_GET['filename'])) {
             <div class="program row-span-4 w-full ">
                 <textarea class="w-full h-8 m-1" type="text" style="background-color: #2E2E2E;border:none;" name="filename" id="filename" placeholder="Filename"><?php if (isset($row["name"])) {
                                                                                                                                                                         echo $row["name"];
-                                                                                                                                                                    } else {
-                                                                                                                                                                        if (isset($_SESSION['filename'])) {
-                                                                                                                                                                            echo $_SESSION['filename'];
-                                                                                                                                                                        };
-                                                                                                                                                                    } ?></textarea>
+                                                                                                                                                                    }?></textarea>
 
                 <textarea class="w-full h-full" type="text" style="background-color: #2E2E2E;border:none;" name="scode" id="scode" placeholder="Program Code"><?php if (isset($row["source_code"])) {
                                                                                                                                                                     echo $row["source_code"];
-                                                                                                                                                                } else {
-                                                                                                                                                                    if (isset($_SESSION['scode'])) {
-                                                                                                                                                                        echo $_SESSION['scode'];
-                                                                                                                                                                    };
                                                                                                                                                                 } ?></textarea>
 
             </div>
@@ -255,7 +265,17 @@ if (isset($_GET['filename'])) {
       ease-in-out
       m-0
       focus:text-white focus:bg-[#193E46] focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                    <option selected value="71">Python</option>
+      <?php 
+if (isset($row["extension"])) {
+
+$extension = $row["extension"];
+
+$varname = extension($extension);
+echo "<option selected value='$extension'>$varname</option>";
+}else{
+echo "<option selected value='71'>Python</option>";    
+} ?>
+     
                     <option value="62">Java</option>
                     <option value="50">C</option>
                     <option value="54">C++</option>
@@ -279,6 +299,8 @@ if (isset($_GET['filename'])) {
 
 if (isset($_SESSION["final_output"])) {
     echo $_SESSION["final_output"];
+} else {
+    echo "Output";
 }
                 ?>
             </div>
@@ -289,11 +311,4 @@ if (isset($_SESSION["final_output"])) {
 </div>
 
 </form>
-<script src="./packages/src-min/ace.js" type="text/javascript" charset="utf-8"></script>
-<script>
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/one_dark");
-    editor.session.setMode("ace/mode/python");
-</script>
-
 <?php include './includes/footer.php'; ?>
