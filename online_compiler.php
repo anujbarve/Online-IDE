@@ -70,17 +70,25 @@ Input: <input type="text" name="stdin"><br>
 
 require './includes/dbh.inc.php';
 
-if (isset($_GET['filename'])) {
-    $fname = $_GET['filename'];
-    $result = mysqli_query($conn, "SELECT * FROM `user_files` WHERE `name` = '$fname'");
-    $row = mysqli_fetch_array($result);
-    $status = 1;
-} elseif(isset($_SESSION['fname'])){
-    $fname = $_SESSION['fname'];
-    $result = mysqli_query($conn, "SELECT * FROM `user_files` WHERE `name` = '$fname'");
-    $row = mysqli_fetch_array($result);
-    $status = 1;
+if (isset($_GET['file'])) {
+    $_SESSION['scode'] = "";
+    $_SESSION['filename'] = "";
+    $_SESSION['input'] = "";
+} else {
+    if (isset($_GET['filename'])) {
+        $fname = $_GET['filename'];
+        $result = mysqli_query($conn, "SELECT * FROM `user_files` WHERE `name` = '$fname'");
+        $row = mysqli_fetch_array($result);
+        $status = 1;
+    } elseif (isset($_SESSION['fname'])) {
+        $fname = $_SESSION['fname'];
+        $result = mysqli_query($conn, "SELECT * FROM `user_files` WHERE `name` = '$fname'");
+        $row = mysqli_fetch_array($result);
+        $status = 1;
+    }
 }
+
+
 
 
 ?>
@@ -104,12 +112,36 @@ if (isset($_GET['filename'])) {
                         <div class="flex flex-row items-center justify-center lg:justify-start">
                         </div>
                         <div class="mb-6">
-                            <input type="text" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name="fname" value="<?php echo $fname;?>" placeholder="File Name" />
+                            <select name='fname' class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+                                <option value=""> Select File</option>
+                                <?php
+                                include './includes/dbh.inc.php';
+                                ?>
+                                <?php
+                                $uname = $_SESSION["userUid"];
+                                $list = mysqli_query($conn, "SELECT * FROM `user_files` WHERE `user_name` = '$uname';");
+                                while ($row_list = mysqli_fetch_assoc($list)) {
+                                ?>
+
+                                    <option value="<?php echo $row_list['name']; ?>">
+
+                                        <?php echo $row_list['name']; ?>
+
+                                    </option>
+
+                                <?php
+
+                                }
+
+                                ?>
+
+                            </select>
                         </div>
+
                         <div class="mb-6">
                             <input type="text" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name="username" value="<?php if (isset($_SESSION["userUid"])) {
-                                                                                                                                                                                                                                                                                                                                                                        echo $_SESSION["userUid"];
-                                                                                                                                                                                                                                                                                                          } ?>" placeholder="Username" />
+                                                                                                                                                                                                                                                                                                                                                                    echo $_SESSION["userUid"];
+                                                                                                                                                                                                                                                                                                                                                                } ?>" placeholder="Username" />
                         </div>
 
 
@@ -117,13 +149,13 @@ if (isset($_GET['filename'])) {
                             <input type="text" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name="title" placeholder="Title" />
                         </div>
                         <div class="mb-6">
-                        <select name="lang" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                        <option selected value="python">Python</option>
-                        <option value="java">Java</option>
-                        <option value="c">C</option>
-                        <option value="cpp">C++</option>
-                        <option value="js">Javascript</option>
-                    </select>
+                            <select name="lang" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                                <option selected value="python">Python</option>
+                                <option value="java">Java</option>
+                                <option value="c">C</option>
+                                <option value="cpp">C++</option>
+                                <option value="js">Javascript</option>
+                            </select>
                         </div>
                         <div class="mb-6">
                             <textarea type="text" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name="description" placeholder="Description"></textarea>
@@ -149,11 +181,17 @@ if (isset($_GET['filename'])) {
                 <div class="row-span-3">
                     <textarea class="w-full h-8 m-1" type="text" style="background-color: #2E2E2E;border:none;" name="filename" id="filename" placeholder="Filename"><?php if (isset($row["name"])) {
                                                                                                                                                                             echo $row["name"];
-                                                                                                                                                                        }?></textarea>
+                                                                                                                                                                        } else if (isset($_SESSION["filename"])) {
+                                                                                                                                                                            echo $_SESSION["filename"];
+                                                                                                                                                                        }
+                                                                                                                                                                        ?></textarea>
 
                     <textarea class="w-full h-[33rem] m-1" type="text" style="background-color: #2E2E2E;border:none;" name="scode" id="scode" placeholder="Program Code"><?php if (isset($row["source_code"])) {
                                                                                                                                                                                 echo $row["source_code"];
-                                                                                                                                                                            } ?></textarea>
+                                                                                                                                                                            } else if (isset($_SESSION["scode"])) {
+                                                                                                                                                                                echo $_SESSION["scode"];
+                                                                                                                                                                            }
+                                                                                                                                                                            ?></textarea>
                 </div>
                 <div class="flex flex-col md:flex-row place-content-end">
 
@@ -172,35 +210,35 @@ if (isset($_GET['filename'])) {
       ease-in-out
       m-0
 focus:text-white focus:bg-[#193E46] focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-<?php 
+                        <?php
 
-function extension($var){
-    if ($var == "71") {
-        return "Python";
-    } elseif($var == "62") {
-        return "Java";
-    } elseif($var == "50"){
-        return "C";
-    } elseif($var == "54"){
-        return "C++";
-    } elseif($var == "63"){
-        return "Javascript";
-    } else{
-        return "None";
-    }
-    
-}
+                        function extension($var)
+                        {
+                            if ($var == "71") {
+                                return "Python";
+                            } elseif ($var == "62") {
+                                return "Java";
+                            } elseif ($var == "50") {
+                                return "C";
+                            } elseif ($var == "54") {
+                                return "C++";
+                            } elseif ($var == "63") {
+                                return "Javascript";
+                            } else {
+                                return "None";
+                            }
+                        }
 
 
-if (isset($row["extension"])) {
+                        if (isset($row["extension"])) {
 
-$extension = $row["extension"];
+                            $extension = $row["extension"];
 
-$varname = extension($extension);
-echo "<option selected value='$extension'>$varname</option>";
-}else{
-echo "<option selected value='71'>Python</option>";    
-} ?>  
+                            $varname = extension($extension);
+                            echo "<option selected value='$extension'>$varname</option>";
+                        } else {
+                            echo "<option selected value='71'>Python</option>";
+                        } ?>
                         <option value="62">Java</option>
                         <option value="50">C</option>
                         <option value="54">C++</option>
@@ -209,8 +247,9 @@ echo "<option selected value='71'>Python</option>";
 
                     <button name="submit" type="submit" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Run</button>
                     <?php if (isset($_SESSION["userUid"])) { ?>
-                        <?php if (isset($_GET['filename'])) { ?>
+                        <?php if (isset($_GET['filename']) || isset($_SESSION['filename'])) { ?>
                             <button name="update" type="update" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Update</button>
+                            <button name="save" type="save" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Save</button>
                         <?php } else { ?>
                             <button name="save" type="save" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Save</button>
                         <?php } ?>
@@ -242,11 +281,19 @@ echo "<option selected value='71'>Python</option>";
             <div class="program row-span-4 w-full ">
                 <textarea class="w-full h-8 m-1" type="text" style="background-color: #2E2E2E;border:none;" name="filename" id="filename" placeholder="Filename"><?php if (isset($row["name"])) {
                                                                                                                                                                         echo $row["name"];
-                                                                                                                                                                    }?></textarea>
+                                                                                                                                                                    } else if (isset($_SESSION["filename"])) {
+                                                                                                                                                                        echo $_SESSION["filename"];
+                                                                                                                                                                    }
+
+                                                                                                                                                                    ?></textarea>
 
                 <textarea class="w-full h-full" type="text" style="background-color: #2E2E2E;border:none;" name="scode" id="scode" placeholder="Program Code"><?php if (isset($row["source_code"])) {
                                                                                                                                                                     echo $row["source_code"];
-                                                                                                                                                                } ?></textarea>
+                                                                                                                                                                } else if (isset($_SESSION["scode"])) {
+                                                                                                                                                                    echo $_SESSION["scode"];
+                                                                                                                                                                }
+
+                                                                                                                                                                ?></textarea>
 
             </div>
             <div style=" background-color: #2E2E2E;" class="row-span-1 flex flex-row place-content-end p-2">
@@ -265,17 +312,17 @@ echo "<option selected value='71'>Python</option>";
       ease-in-out
       m-0
       focus:text-white focus:bg-[#193E46] focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-      <?php 
-if (isset($row["extension"])) {
+                    <?php
+                    if (isset($row["extension"])) {
 
-$extension = $row["extension"];
+                        $extension = $row["extension"];
 
-$varname = extension($extension);
-echo "<option selected value='$extension'>$varname</option>";
-}else{
-echo "<option selected value='71'>Python</option>";    
-} ?>
-     
+                        $varname = extension($extension);
+                        echo "<option selected value='$extension'>$varname</option>";
+                    } else {
+                        echo "<option selected value='71'>Python</option>";
+                    } ?>
+
                     <option value="62">Java</option>
                     <option value="50">C</option>
                     <option value="54">C++</option>
@@ -283,12 +330,12 @@ echo "<option selected value='71'>Python</option>";
                 </select>
                 <button class="text-black m-1 px-2 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg" type="submit" name="submit">Run</button>
                 <?php if (isset($_SESSION["userUid"])) { ?>
-                    <?php if (isset($_GET['filename'])) { ?>
+                    <?php if (isset($_GET['filename']) || isset($_SESSION['filename'])) { ?>
                         <button name="update" type="update" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Update</button>
                     <?php } else { ?>
                         <button name="save" type="save" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Save</button>
                     <?php } ?>
-                    <div class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg" data-bs-toggle="modal" data-bs-target="#exampleModalLg" >Share</div>
+                    <div class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg" data-bs-toggle="modal" data-bs-target="#exampleModalLg">Share</div>
                 <?php } ?>
             </div>
             <div class="input row-span-2">
@@ -297,11 +344,11 @@ echo "<option selected value='71'>Python</option>";
             <div class="output">
                 <?php
 
-if (isset($_SESSION["final_output"])) {
-    echo $_SESSION["final_output"];
-} else {
-    echo "Output";
-}
+                if (isset($_SESSION["final_output"])) {
+                    echo $_SESSION["final_output"];
+                } else {
+                    echo "Output";
+                }
                 ?>
             </div>
 
