@@ -86,14 +86,14 @@ if (isset($_POST['submit'])) {
 			$error = $decoded->status->description;
 
 			if ($status_id == "3") {
-				header("location: ../online_compiler.php?output=success");
+				header("location: ../online_compiler.php?message=success");
 				$_SESSION['final_output'] = nl2br($final_output);
 				$_SESSION['filename'] = $filename;
 				$_SESSION['input'] = $stdin;
 				$_SESSION['lang'] = $lang;
 				$_SESSION['scode'] = $scode;
 			} else {
-				header("location: ../online_compiler.php?output=error");
+				header("location: ../online_compiler.php?message=error");
 				$_SESSION['final_output'] = nl2br($error);
 			}
 
@@ -118,7 +118,8 @@ if (isset($_POST['submit'])) {
 	$sql = "INSERT INTO user_files (name,extension,source_code,user_name)
 	VALUES ('$name','$lang','$scode','$username')";
 	if (mysqli_query($conn, $sql)) {
-		header("location: ../online_compiler.php");
+		header("location: ../online_compiler.php?message=code_saved_successfully");
+		$_SESSION['fname'] = $filename;
 		exit();
 	} else {
 		echo "Error: " . $sql . "

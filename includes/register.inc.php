@@ -13,23 +13,23 @@ if (isset($_POST["submit"])) {
   require_once 'functions.inc.php';
 
   if (emptyInputRegister($name,$email,$username,$pwd,$pwdrepeat) !== false) {
-    header("location: ../signup.php?error=emptyInput");
+    header("location: ../signup.php?message=emptyInput");
     exit();
   }
   if (invalidUid($username) !== false) {
-    header("location: ../signup.php?error=invaliduid");
+    header("location: ../signup.php?message=invaliduid");
     exit();
   }
   if (invalidEmail($email) !== false) {
-    header("location: ../signup.php?error=invalidemail");
+    header("location: ../signup.php?message=invalidemail");
     exit();
   }
   if (pwdMatch($pwd,$pwdrepeat) !== false) {
-    header("location: ../signup.php?error=passwordsdontmatch");
+    header("location: ../signup.php?message=passwordsdontmatch");
     exit();
   }
   if (uidExists($conn,$username,$email) !== false) {
-    header("location: ../signup.php?error=usernametaken");
+    header("location: ../signup.php?message=usernametaken");
     exit();
   }
   
@@ -48,23 +48,23 @@ if (isset($_POST["submit"])) {
   require_once 'functions.inc.php';
 
   if (emptyInputRegister($name,$email,$username,$pwd,$pwdrepeat) !== false) {
-    header("location: ../admin/create.php?error=emptyInput");
+    header("location: ../admin/create.php?message=emptyInput");
     exit();
   }
   if (invalidUid($username) !== false) {
-    header("location: ../admin/create.php?error=invaliduid");
+    header("location: ../admin/create.php?message=invaliduid");
     exit();
   }
   if (invalidEmail($email) !== false) {
-    header("location: ../admin/create.php?error=invalidemail");
+    header("location: ../admin/create.php?message=invalidemail");
     exit();
   }
   if (pwdMatch($pwd,$pwdrepeat) !== false) {
-    header("location: ../admin/create.php?error=passwordsdontmatch");
+    header("location: ../admin/create.php?message=passwordsdontmatch");
     exit();
   }
   if (uidExists($conn,$username,$email) !== false) {
-    header("location: ../admin/create.php?error=usernametaken");
+    header("location: ../admin/create.php?message=usernametaken");
     exit();
   }
   

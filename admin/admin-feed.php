@@ -102,7 +102,6 @@ require './nav.php';
           <tbody>
 <?php
  include '../includes/dbh.inc.php';
- $uname = $_SESSION["userUid"];
  $result = mysqli_query($conn, "SELECT * FROM `user_posts`");
  if (mysqli_num_rows($result) > 0) {
    $i = 0;

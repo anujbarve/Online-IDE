@@ -18,8 +18,6 @@ Input: <input type="text" name="stdin"><br>
 </html> -->
 
 <?php include './includes/header.php'; ?>
-<?php include './includes/navbar-new.php'; ?>
-
 <style>
     textarea {
         width: 100%;
@@ -74,6 +72,8 @@ if (isset($_GET['file'])) {
     $_SESSION['scode'] = "";
     $_SESSION['filename'] = "";
     $_SESSION['input'] = "";
+    $_SESSION["final_output"] = "";
+    $_SESSION['fname'] = "";
 } else {
     if (isset($_GET['filename'])) {
         $fname = $_GET['filename'];
@@ -87,15 +87,7 @@ if (isset($_GET['file'])) {
         $status = 1;
     }
 }
-
-
-
-
 ?>
-
-
-<div class="container place-content-center w-full p-1">
-
     <!-- MODAL  -->
 
     <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto" id="exampleModalLg" tabindex="-1" aria-labelledby="exampleModalLgLabel" aria-modal="true" role="dialog">
@@ -173,6 +165,20 @@ if (isset($_GET['file'])) {
     </div>
 
     <!-- /MODAL -->
+<body>
+    
+<!-- navbar -->
+
+<?php include './includes/navbar-new.php'; ?>
+
+<!-- /navbar -->
+
+<!-- online compiler -->
+
+
+<div class="container place-content-center w-full p-1">
+
+
     <form action="./includes/compiler.php" method="post">
 
         <div class="hidden md:grid md:ml-6 mt-6 ml-1 mb-6 grid grid-rows-2 grid-col-1 md:grid-col-3 grid-flow-row md:grid-flow-col h-full w-full">
@@ -247,9 +253,8 @@ focus:text-white focus:bg-[#193E46] focus:border-blue-600 focus:outline-none" ar
 
                     <button name="submit" type="submit" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Run</button>
                     <?php if (isset($_SESSION["userUid"])) { ?>
-                        <?php if (isset($_GET['filename']) || isset($_SESSION['filename'])) { ?>
+                        <?php if ($_SESSION['filename'] != "" && $_SESSION['fname'] != "") { ?>
                             <button name="update" type="update" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Update</button>
-                            <button name="save" type="save" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Save</button>
                         <?php } else { ?>
                             <button name="save" type="save" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Save</button>
                         <?php } ?>
@@ -357,5 +362,22 @@ focus:text-white focus:bg-[#193E46] focus:border-blue-600 focus:outline-none" ar
 
 </div>
 
-</form>
+<!-- /online compiler -->
+
+</body>
 <?php include './includes/footer.php'; ?>
+</html>
+
+<script>
+<?php
+
+include './includes/toast.php';
+
+if(isset($_GET['message'])){
+$message = $_GET['message'];
+
+toast_compiler_page($message);
+}
+
+?>  
+</script>

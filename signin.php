@@ -23,6 +23,8 @@
 
     <!-- GLOBAL CSS-->
     <link rel="stylesheet" type="text/css" href="../Stylesheets/global.css">
+
+    <script src="./packages/tata.js/tata.js"></script>
     <title>Scryptn-Sign In</title>
 </head>
 
@@ -73,5 +75,17 @@
         </div>
     </div>
 </body>
+<script>
+<?php
 
+include './includes/toast.php';
+
+if(isset($_GET['message'])){
+$message = $_GET['message'];
+
+toast_login_page($message);
+}
+
+?>  
+</script>
 </html>
