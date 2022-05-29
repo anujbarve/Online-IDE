@@ -31,7 +31,7 @@
       <!-- Profile -->
       <div class="rounded-lg bg-gray-200 max-w-sm">
         <a class="m-8 flex justify-center" data-mdb-ripple="true" data-mdb-ripple-color="light">
-          <img class="profile-photo object-cover object-center flex-shrink-0 w-" src="<?php if (isset($row["user_photo"])) {
+          <img width="200px" class="bg-gray-100 object-cover object-center flex-shrink-0 rounded-full" src="<?php if (isset($row["user_photo"])) {
                                                           echo "../user-data/profile-photos/" . $row["user_photo"];
                                                         } else {
                                                           echo "https://angularjs-template.herokuapp.com/sing-app/dist/demo/img/people/a5.jpg";

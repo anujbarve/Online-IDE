@@ -59,7 +59,7 @@ require './nav.php';
 
                             </div>
                             <div class="flex-grow">
-                            <a href="update.php?id=<?php echo $row["userID"]; ?>" title='Update Record'><p>Update</p></a>
+                            <a href="view_user.php?id=<?php echo $row["userID"]; ?>&Uid=<?php echo $row["userUid"]; ?>" title='View Profile'><p>View</p></a>
                             <a href="delete.php?id=<?php echo $row["userID"]; ?>" title='Delete Record'><p>Delete</p></a>
 
                             </div>
