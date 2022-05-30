@@ -9,22 +9,22 @@
         </a>
         <p class="text-sm text-gray-400 sm:ml-6 sm:mt-0 mt-4">© 2022 Scryptn Team</p>
         <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-            <a class="ml-3 text-gray-400" href="../../Online-IDE/index.php">
+            <a class="ml-3 text-gray-400" href="./index.php">
                 Home
             </a>
-            <a class="ml-3 text-gray-400" href="../../../Online-IDE/contact_us.php">
+            <a class="ml-3 text-gray-400" href="./contact_us.php">
                 Contact us
             </a>
-            <a class="ml-3 text-gray-400" href="../../../Online-IDE/about_us.php">
+            <a class="ml-3 text-gray-400" href="./about_us.php">
                 About Us
             </a>
-            <a class="ml-3 text-gray-400" href="../../../Online-IDE/online_compiler.php">
+            <a class="ml-3 text-gray-400" href="./online_compiler.php">
                 Compiler
             </a>
-            <a class="ml-3 text-gray-400" href="../../../Online-IDE/terms_and_conditions.php">
+            <a class="ml-3 text-gray-400" href="./terms_and_conditions.php">
                 Terms
             </a>
-            <a class="ml-3 text-gray-400" href="../../../Online-IDE/terms_and_conditions.php">
+            <a class="ml-3 text-gray-400" href="./terms_and_conditions.php">
                 Policies
             </a>
         </span>

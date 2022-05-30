@@ -148,6 +148,6 @@ $i++;
 </body>
 
 <?php
-require '../includes/footer.php';
+require './footer.php';
 ?>
 </html>

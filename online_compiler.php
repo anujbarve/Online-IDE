@@ -366,7 +366,7 @@ focus:text-white focus:bg-[#193E46] focus:border-blue-600 focus:outline-none" ar
 <!-- /online compiler -->
 
 </body>
-<?php include './includes/footer.php'; ?>
+<?php include './footer.php'; ?>
 </html>
 
 <script>

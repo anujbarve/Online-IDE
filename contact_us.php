@@ -41,6 +41,6 @@ include_once './includes/navbar-new.php';
 </div>
 <?php
 
-include_once './includes/footer.php';
+include_once './footer.php';
 
 ?>

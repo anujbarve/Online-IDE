@@ -115,5 +115,5 @@ $row = mysqli_fetch_array($result);
 </div>
     
 </body>
-<?php include './includes/footer.php' ?>
+<?php include './footer.php' ?>
 </html>

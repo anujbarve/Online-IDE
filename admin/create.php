@@ -57,5 +57,5 @@ require_once "connection.php";
 
 
 </body>
-<?php require '../includes/footer.php';?>
+<?php require './footer.php';?>
 </html>

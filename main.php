@@ -67,7 +67,7 @@ if (isset($_SESSION["userUid"])) {
 
 <?php
 
-include_once './includes/footer.php';
+include_once './footer.php';
 
 ?>
 
