@@ -3,14 +3,13 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/android-icon-96x96.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">ONLINE IDE - SCRYPTN</h3>
 
   <p align="center">
-    An Awesome web based IDE
-  </p>
+Code with ease  </p>
 </div>
 
 
@@ -49,11 +48,11 @@
 ![image](https://user-images.githubusercontent.com/56199413/169698277-affc7081-16e9-4277-8b3f-6e2f6370b1f5.png)
 
 This project is being developed to make, the overwhelming world of programming
-a bit more welcoming, so the project is to make an online IDE, using the various open source technologies, and web development, so the scope of the project is not just limited to the third project of diploma, but it’s much more than, it’s a continuous project for years to come.
+a bit more welcoming. The project is to make an online IDE, using the various open source technologies, and web development. The scope of the project is not just limited to the third-year project of diploma, but its much more, its a continuous project for years to come.
 
-So the basic idea of this project to make a website, a full website with registration and sign in functionality, using the backend by PHP, and the front end using HTML, CSS, JS  and the a few extra frameworks to make the website fast, responsive and easy to use for the users
+The basic idea of this project to make a website, a full-fledge website with registration and sign in functionality, using the backend by PHP, and the front end using HTML, CSS, JS  and the a few extra frameworks to make the website fast, responsive and easy to use for the users
 
-In this project,  five online compilers namely, Online C, C++, java, python, and Javascript language compiler using cloud computing which reduces the problem of portability and storage space by making the use of cloud computing, online java compiler using cloud computing, which provides most convenient tool to compile code and remove the errors. These seven compilers provide online compiler service, so no need to install a separate compiler on each system machine To generate PaaS service using cloud computing for compilation purposes in college campuses. A centralized server will have all legal data and software and other systems can access it online. Platform as a Service allows clients to create and manage software applications using tools supplied by the provider.
+In this project, we've included compilers for five languages namely, C, C++, Java, Python, and Javascript. Moreover, In today’s era, organization of system with compiler installed, unavailability of highly configured system to run the program, necessary resources needed such as OS and plugins are not available. To resolve these issue we come across the need of online compiler nested in cloud which can compile the code online and which can be accessed from any device, no high configuration is required and multiple language can be used in single platform.
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
