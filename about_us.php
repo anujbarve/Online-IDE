@@ -8,7 +8,8 @@ include_once './includes/navbar-new.php';
 <section class="text-black bg-white body-font">
 
   <div class="container px-5 py-5 mx-auto">
-    <h1 class="title-font font-medium text-3xl">What is Scryptn</h1>
+    <h1 class="title-font font-bold text-3xl">What is Scryptn</h1>
+    <br />
     <p class="mb-4">
       This project is being developed to make, the overwhelming world of programming
       a bit more welcoming, so the project is to make an online IDE, using the various open source technologies, and web development, so the scope of the project is not just limited to the third project of diploma, but it’s much more than, it’s a continuous project for years to come.
@@ -25,7 +26,7 @@ include_once './includes/navbar-new.php';
     <div class="flex flex-wrap -m-4">
       <div class="p-4 lg:w-1/2">
         <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-          <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/200x200">
+          <img alt="Team I" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="./images/profile/anuj.jpeg">
           <div class="flex-grow sm:pl-8">
             <h2 class="title-font font-medium text-lg text-black">Anuj Barve</h2>
             <h3 class="text-gray-500 mb-3">Project Lead & Developer</h3>
@@ -52,11 +53,11 @@ include_once './includes/navbar-new.php';
       </div>
       <div class="p-4 lg:w-1/2">
         <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-          <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/201x201">
+          <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="./images/profile/sr.jpg">
           <div class="flex-grow sm:pl-8">
             <h2 class="title-font font-medium text-lg text-black">Saakshi Raut</h2>
             <h3 class="text-gray-500 mb-3">UI Designer & Developer</h3>
-            <p class="mb-4">Python Enthusiast,Loves to Code. Currently working on ML Algos and much more.</p>
+            <p class="mb-4">Python Enthusiast, Loves to Code. Currently working on ML Algos.</p>
             <span class="inline-flex">
               <a class="text-gray-500">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30" style=" fill:#000000;">
@@ -79,7 +80,7 @@ include_once './includes/navbar-new.php';
       </div>
       <div class="p-4 lg:w-1/2">
         <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-          <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/204x204">
+          <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="./images/profile/rutu.jpeg">
           <div class="flex-grow sm:pl-8">
             <h2 class="title-font font-medium text-lg text-black">Rutuja Pawar</h2>
             <h3 class="text-gray-500 mb-3">Head of Documentation</h3>
@@ -106,7 +107,7 @@ include_once './includes/navbar-new.php';
       </div>
       <div class="p-4 lg:w-1/2">
         <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-          <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/206x206">
+          <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="./images/profile/shre.jpeg">
           <div class="flex-grow sm:pl-8">
             <h2 class="title-font font-medium text-lg text-black">Shreya Sahane</h2>
             <h3 class="text-gray-500 mb-3">QA and Testing </h3>
