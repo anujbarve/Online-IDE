@@ -113,11 +113,12 @@ There are multiple ways a user can use this site, he/she can run their code usin
 
 - [x] Add Readme
 - [x] Add Contact Us form
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+- [ ] Add Auto Complete to the compiler
+- [ ] Make the website using modern frameworks like React.js
+- [ ] Improve the Mobile UI
+- [ ] Add more moderation layers
+- [ ] Improve code execution/compiling speed
+- [ ] Host own api on aws for compiling code
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
