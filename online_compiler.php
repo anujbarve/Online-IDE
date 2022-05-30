@@ -334,13 +334,14 @@ focus:text-white focus:bg-[#193E46] focus:border-blue-600 focus:outline-none" ar
                     <option value="63">Javascript</option>
                 </select>
                 <button class="text-black m-1 px-2 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg" type="submit" name="submit">Run</button>
-                <?php if (isset($_SESSION["userUid"])) { ?>
-                    <?php if (isset($_GET['filename']) || isset($_SESSION['filename'])) { ?>
-                        <button name="update" type="update" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Update</button>
-                    <?php } else { ?>
-                        <button name="save" type="save" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Save</button>
-                    <?php } ?>
-                    <div class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg" data-bs-toggle="modal" data-bs-target="#exampleModalLg">Share</div>
+                <button name="submit" type="submit" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Run</button>
+                    <?php if (isset($_SESSION["userUid"])) { ?>
+                        <?php if ($_SESSION['filename'] != "" && $_SESSION['fname'] != "") { ?>
+                            <button name="update" type="update" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Update</button>
+                        <?php } else { ?>
+                            <button name="save" type="save" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Save</button>
+                        <?php } ?>
+                        <div name="share" type="share" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg" data-bs-toggle="modal" data-bs-target="#exampleModalLg">Share</div>
                 <?php } ?>
             </div>
             <div class="input row-span-2">
