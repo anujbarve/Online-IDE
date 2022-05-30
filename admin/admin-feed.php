@@ -24,7 +24,7 @@ require './nav.php';
                     <button type="button" class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div class="modal-body relative p-4">
-                    <form action="./includes/new_post.php" method="post" enctype="multipart/form-data">
+                    <form action="../includes/new_post.php" method="post" enctype="multipart/form-data">
                         <div class="flex flex-row items-center justify-center lg:justify-start">
                         </div>
                         <div class="mb-6">
@@ -59,7 +59,7 @@ require './nav.php';
                         </div>
 
                         <div class="text-center">
-                            <button name="update" type="update" class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                            <button name="update_admin" type="update_admin" class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                                 POST
                             </button>
                         </div>

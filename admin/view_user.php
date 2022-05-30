@@ -113,7 +113,7 @@
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
                   <tr class="border-b">
-                  <td class="flex justify-center px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><?php $i = $row["extension"]; if( $i == "71" ){echo "<i class='fa-brands fa-python'></i>";}; ?></td>
+                  <td class="flex justify-center px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><?php $i = $row["extension"]; if( $i == "71" ){echo "<i class='fa-brands fa-python'></i>";};if( $i == "62" ){echo "<i class='fa-brands fa-java'></i>";};if( $i == "50" ){echo "<i class='fa-solid fa-c'></i>";}; if( $i == "54" ){echo "<i class='fa-solid fa-copyright'></i>";}; if( $i == "63" ){echo "<i class='fa-brands fa-js-square'></i>";};?></td>
 
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                   <a href="../online_compiler.php?filename=<?php echo $row['name'];?>">

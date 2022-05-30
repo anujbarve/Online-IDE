@@ -31,7 +31,20 @@ if(isset($_POST['submit'])){
   $sql = "UPDATE `user_posts` SET `title`='$title',`description`='$description',`scode`='$scode',`fname`='$filename' WHERE `id` = $id";
   
   if ($conn->query($sql) === TRUE) {
-    header("location: ../user-feed.php?message=post_updated_successfully");
+    header("location: ../user_feed.php?message=post_updated_successfully");
+  } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+  
+  $conn->close();
+}elseif(isset($_POST['update_admin'])){
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+  $sql = "UPDATE `user_posts` SET `title`='$title',`description`='$description',`scode`='$scode',`fname`='$filename' WHERE `id` = $id";
+  
+  if ($conn->query($sql) === TRUE) {
+    header("location: ../admin/admin-feed.php?message=post_updated_successfully");
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
