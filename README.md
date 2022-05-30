@@ -66,7 +66,7 @@ This project is mainly built using PHP but there are many more languages we used
 * [PHP](https://www.php.net/)
 * [JS](https://www.javascript.com/)
 * [HTML](https://html.com/)
-* [CSS]
+* [CSS](https://html.com/)
 * [TAILWIND CSS](https://tailwindcss.com/)
 * [cURL](https://curl.se/)
 * [MySQL](https://www.mysql.com/)
@@ -102,7 +102,7 @@ Just install XAMPP ;)
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-There are 
+There are multiple ways a user can use this site, he/she can run their code using the online compiler, they can save their code, and they can also share their code
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -111,8 +111,8 @@ There are
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
+- [x] Add Readme
+- [x] Add Contact Us form
 - [ ] Add Additional Templates w/ Examples
 - [ ] Add "components" document to easily copy & paste sections of the readme
 - [ ] Multi-language Support
