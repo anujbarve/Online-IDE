@@ -156,3 +156,17 @@ $i++;
 require './footer.php';
 ?>
 </html>
+
+<script>
+<?php
+
+include './includes/toast.php';
+
+if(isset($_GET['message'])){
+$message = $_GET['message'];
+
+toast_compiler_page($message);
+}
+
+?>  
+</script>

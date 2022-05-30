@@ -4,10 +4,10 @@ require_once 'dbh.inc.php';
 require_once 'functions.inc.php';
 
 $username = $_POST['username']; 
-$title = $_POST['title']; 
-$description = $_POST['description']; 
-$scode = $_POST['lang']; 
-$filename = $_POST['fname'];
+$title = mysqli_real_escape_string($conn,$_POST['title']);
+$description = mysqli_real_escape_string($conn,$_POST['description']); 
+$scode = mysqli_real_escape_string($conn,$_POST['lang']); 
+$filename = mysqli_real_escape_string($conn,$_POST['fname']);
 $id = $_POST['id'];
 
 

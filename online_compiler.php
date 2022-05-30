@@ -104,7 +104,7 @@ if (isset($_GET['file'])) {
                         <div class="flex flex-row items-center justify-center lg:justify-start">
                         </div>
                         <div class="mb-6">
-                            <select name='fname' class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+                            <select name='fname' hidden class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
                                 <option value=""> Select File</option>
                                 <?php
                                 include './includes/dbh.inc.php';
@@ -253,7 +253,7 @@ focus:text-white focus:bg-[#193E46] focus:border-blue-600 focus:outline-none" ar
 
                     <button name="submit" type="submit" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Run</button>
                     <?php if (isset($_SESSION["userUid"])) { ?>
-                        <?php if ($_SESSION['filename'] != "" && $_SESSION['fname'] != "") { ?>
+                        <?php if(!isset($_SESSION['filename'])) { $_SESSION['filename'] = '';};  if ($_SESSION['filename'] != "" && $_SESSION['fname'] != "") { ?>
                             <button name="update" type="update" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Update</button>
                         <?php } else { ?>
                             <button name="save" type="save" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Save</button>
@@ -334,9 +334,8 @@ focus:text-white focus:bg-[#193E46] focus:border-blue-600 focus:outline-none" ar
                     <option value="63">Javascript</option>
                 </select>
                 <button class="text-black m-1 px-2 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg" type="submit" name="submit">Run</button>
-                <button name="submit" type="submit" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Run</button>
                     <?php if (isset($_SESSION["userUid"])) { ?>
-                        <?php if ($_SESSION['filename'] != "" && $_SESSION['fname'] != "") { ?>
+                        <?php  if(!isset($_SESSION['filename'])) { $_SESSION['filename'] = '';};  if ($_SESSION['filename'] != "" && $_SESSION['fname'] != "") { ?>
                             <button name="update" type="update" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Update</button>
                         <?php } else { ?>
                             <button name="save" type="save" class="text-black m-2 px-3 py-2 bg-gradient-to-br from-[#7EFF7B] to-[#58E1FF] hover:from-[#58E1FF] hover:to-[#7EFF7B] rounded-lg">Save</button>

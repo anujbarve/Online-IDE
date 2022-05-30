@@ -91,8 +91,8 @@ Just install XAMPP ;)
 
 1. Clone the repo
 2. Move the repo in the XAMPP htdocs folder
-3. create a database name "scr"
-4. import the given SQL file from the repo 
+3. Create a database name "scr"
+4. Import the given SQL file from the repo 
 5. Done
 
 <p align="right">(<a href="#top">back to top</a>)</p>

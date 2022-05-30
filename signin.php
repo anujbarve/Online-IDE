@@ -56,7 +56,7 @@
                         </div>
                         <div class="form-group text-right">
                             <span class="text-sm text-black font-bold text-left px-1 hover:text-lg ">
-                                <a class="hover:no-underline hover:text-[#6AF0BF]" href="#">Forgot Password</a>
+                                <a class="hover:no-underline hover:text-[#6AF0BF]" href="./signup.php">Don't have a account, Register Now</a>
                             </span>
                         </div>
                         <div class="form-group justify-content-center">

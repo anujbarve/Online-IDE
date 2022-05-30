@@ -73,7 +73,23 @@ function toast_compiler_page($message){
                 position: "br",
                 duration: 5000
             })';
-        }elseif($message == "error"){
+        }elseif($message == "new_post_uploaded_successfully"){
+            echo 'tata.success("Post Success","Post Uploaded Successfully",{
+                position: "br",
+                duration: 5000
+            })';
+        }elseif($message == "post_updated_successfully"){
+            echo 'tata.success("Post Success","Post Updated Successfully",{
+                position: "br",
+                duration: 5000
+            })';
+        }elseif($message == "post_delete"){
+            echo 'tata.info("Post Info","Post Deleted Successfully",{
+                position: "br",
+                duration: 5000
+            })';
+        }
+        elseif($message == "error"){
             echo 'tata.error("Code Error","Error while compiling",{
                 position: "br",
                 duration: 5000
