@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
 		CURLOPT_HTTPHEADER => [
 			"Content-Type: application/json",
 			"X-RapidAPI-Host: judge0-ce.p.rapidapi.com",
-			"X-RapidAPI-Key: 747fcd0dc0msh0a929fce563d14dp18d82djsn44c100e29c75",
+			"X-RapidAPI-Key: " . getenv("RAPIDAPI_KEY"),
 			"content-type: application/json"
 		],
 	]);
@@ -66,7 +66,7 @@ if (isset($_POST['submit'])) {
 			CURLOPT_CUSTOMREQUEST => "GET",
 			CURLOPT_HTTPHEADER => [
 				"X-RapidAPI-Host: judge0-ce.p.rapidapi.com",
-				"X-RapidAPI-Key: 747fcd0dc0msh0a929fce563d14dp18d82djsn44c100e29c75"
+				"X-RapidAPI-Key: " . getenv("RAPIDAPI_KEY")
 			],
 		]);
 
